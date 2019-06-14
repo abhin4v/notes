@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<a href="//abhinavsarkar.net/photos/#{{ page.image_name }}" class="img-link">
+  <picture class="photo">
+    <source srcset="//abhinavsarkar.net/photos/thumbs/{{ page.image_name }}-{{ page.image_sizes[0] }}.jpg" media="(min-width: 840px)">
+    <source srcset="//abhinavsarkar.net/photos/thumbs/{{ page.image_name }}-{{ page.image_sizes[1] }}.jpg" media="(min-width: 480px)">
+    <source srcset="//abhinavsarkar.net/photos/thumbs/{{ page.image_name }}-{{ page.image_sizes[2] }}.jpg" media="(min-width: 320px)">
+    <img src="//abhinavsarkar.net/photos/thumbs/{{ page.image_name }}-{{ page.image_sizes[3] }}.jpg" alt>
+  </picture>
+  <div>{{ page.image_title }}</div>
+</a>

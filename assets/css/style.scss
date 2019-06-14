@@ -15,7 +15,7 @@ body.remarkdown {
     opacity: .6;
     color: #205080;
   }
-  
+
   .container {
     max-width: 700px;
     padding: 10px;
@@ -27,6 +27,23 @@ body.remarkdown {
     }
     @media (min-width: 700px) {
       padding: 40px 80px;
+    }
+
+    a.img-link {
+      &:hover {
+        border-bottom: none;
+      }
+      &::before, &::after {
+        content: '';
+      }
+      picture.photo img {
+        max-width: 100%;
+        width: 100%;
+      }
+      div {
+        text-align: center;
+        margin-bottom: 1em;
+      }
     }
   }
 

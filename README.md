@@ -10,10 +10,12 @@ Short notes about things I come across and ideas I run into.
 - [general](./tags/general)
 - [meetings](./tags/meetings)
 - [observations](./tags/observations)
+- [photo](./tags/photo)
 - [video](./tags/video)
 
 ## Notes
 
+- *2019-06-15* [2019/sand-boat](./2019/sand-boat)
 - *2019-06-14* [2019/lightening](./2019/lightening)
 - *2019-06-13* [2019/redis-promises](./2019/redis-promises)
 - *2019-06-12* [2019/meetings](./2019/meetings)
