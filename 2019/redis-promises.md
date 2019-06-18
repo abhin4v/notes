@@ -1,6 +1,6 @@
 ---
 date: 2019-06-13
-tags: code distributed-systems caching
+tags: programming distributed-systems caching
 ---
 
 # Taming the Thundering Herd with Redis

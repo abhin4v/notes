@@ -6,7 +6,6 @@ Short notes about things I come across and ideas I run into.
 
 - [algorithm](./tags/algorithm)
 - [caching](./tags/caching)
-- [code](./tags/code)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
 - [java](./tags/java)
