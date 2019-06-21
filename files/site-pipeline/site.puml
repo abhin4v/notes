@@ -1,0 +1,51 @@
+@startuml
+skinparam Shadowing false
+skinparam BackgroundColor transparent
+skinparam handwritten true
+skinparam Default {
+  FontColor Black
+  FontSize  18
+  FontStyle plain
+  FontName monospace
+}
+
+skinparam usecase {
+  BackgroundColor PapayaWhip
+}
+
+skinparam component {
+  BackgroundColor PapayaWhip
+  BorderColor Gray
+  ArrowThickness 2
+  ArrowColor Gray
+}
+
+skinparam legend {
+  BackgroundColor transparent
+  BorderColor transparent
+}
+
+component [code.abhinavsarkar.net] #LightPink
+component [Drone CI] #LightPink
+component [Docker Compose] #LightPink
+component [hooks.abhinavsarkar.net] #LightPink
+component [abhinavsarkar.net] #LightPink
+component [notes.abhinavsarkar.net] #LightPink
+
+(start) -d-> [Me]
+[Me] -r-> [code.abhinavsarkar.net]: Pushes code
+[code.abhinavsarkar.net] -r-> [Drone CI]: Triggers build
+[Strava] --> [Drone CI]: Pulls activities
+[Goodreads] --> [Drone CI]: Pulls books read
+[notes.abhinavsarkar.net] --> [Drone CI]: Pulls notes
+[Drone CI] --> [Drone CI]: Builds website docker image
+[Drone CI] -d-> [Docker Hub]: Pushes website docker image
+[Docker Hub] -l-> [hooks.abhinavsarkar.net]: Triggers webhook
+[hooks.abhinavsarkar.net] -d-> [Docker Compose]: Runs docker compose pull/up
+[Docker Compose] -r-> [abhinavsarkar.net]: Pulls and deploys built website image
+[abhinavsarkar.net] -r-> (end)
+legend
+<back:#LightPink>Runs on my VPS</back>
+<back:#PapayaWhip>Runs elsewhere</back>
+endlegend
+@enduml

@@ -4,7 +4,9 @@ Short notes about things I come across and ideas I run into.
 
 ## Tags
 
+- [CI](./tags/CI)
 - [algorithm](./tags/algorithm)
+- [architecture](./tags/architecture)
 - [caching](./tags/caching)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
@@ -17,6 +19,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2019-06-21* [2019/site-pipeline](./2019/site-pipeline)
 - *2019-06-18* [2019/linked-list](./2019/linked-list)
 - *2019-06-15* [2019/sand-boat](./2019/sand-boat)
 - *2019-06-14* [2019/lightening](./2019/lightening)
