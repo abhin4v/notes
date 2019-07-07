@@ -3,7 +3,7 @@ date: 2019-06-18
 tags: programming java algorithm
 ---
 
-# Reverse
+# Reversing a Linked-list
 
 Reversing a [Linked List][1] in Java with old-fashioned pointers.
 
