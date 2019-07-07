@@ -1,6 +1,6 @@
 ---
 date: 2019-07-07
-tags: programming java
+tags: programming java algorithm
 ---
 
 # Sorts of Sorts
