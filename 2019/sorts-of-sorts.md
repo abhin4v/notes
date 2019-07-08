@@ -5,6 +5,8 @@ tags: programming java algorithm
 
 # Sorts of Sorts
 
+I wrote some of the popular sorting algorithms in Java for fun and practice.
+
 ```java
 package net.abhinavsarkar.sorts;
 
@@ -18,8 +20,7 @@ public class Sorts {
     int compare(T o1, T o2);
   }
 
-  public static <T> T[] selectionSort(
-      T[] input, Comparator<T> comparator) {
+  public static <T> T[] selectionSort(T[] input, Comparator<T> comparator) {
     for (int i = 0; i < input.length - 1; i++) {
       int j = findMinimumIndex(input, i, comparator);
       swap(input, i, j);
@@ -40,8 +41,7 @@ public class Sorts {
     return minIdx;
   }
 
-  public static <T> T[] insertionSort(
-      T[] input, Comparator<T> comparator) {
+  public static <T> T[] insertionSort(T[] input, Comparator<T> comparator) {
     for (int i = 1; i < input.length; i++) {
       for (int j = i; j > 0; j--) {
         if (comparator.compare(input[j], input[j - 1]) < 0) {
@@ -75,20 +75,17 @@ public class Sorts {
     return merge(left, right, comparator);
   }
 
-  private static <T> T[] merge(
-      T[] left, T[] right, Comparator<T> comparator) {
+  private static <T> T[] merge(T[] left, T[] right, Comparator<T> comparator) {
     T[] output = mkArray(left, left.length + right.length);
     int i, j, k;
     i = j = k = 0;
     while (i < left.length || j < right.length) {
       if (i >= left.length) {
-        System.arraycopy(right, j, output, j + left.length, 
-          right.length - j);
+        System.arraycopy(right, j, output, j + left.length, right.length - j);
         break;
       }
       if (j >= right.length) {
-        System.arraycopy(left, i, output, i + right.length, 
-          left.length - i);
+        System.arraycopy(left, i, output, i + right.length, left.length - i);
         break;
       }
       output[k++] = comparator.compare(left[i], right[j]) <= 0 
@@ -100,8 +97,7 @@ public class Sorts {
 
   @SuppressWarnings("unchecked")
   private static <T> T[] mkArray(T[] input, int length) {
-    return (T[]) Array.newInstance(
-      input.getClass().getComponentType(), length);
+    return (T[]) Array.newInstance(input.getClass().getComponentType(), length);
   }
 
   public static <T> T[] quickSort(T[] input, Comparator<T> comparator) {
@@ -113,12 +109,9 @@ public class Sorts {
     return quickSort(input, 0, input.length, comparator);
   }
 
-  private static final ThreadLocalRandom RANDOM = 
-    ThreadLocalRandom.current();
-
   private static <T> void shuffle(T[] input) {
     for (int i = input.length - 1; i > 0; i--) {
-      int j = RANDOM.nextInt(i + 1);
+      int j = ThreadLocalRandom.current().nextInt(i + 1);
       swap(input, i, j);
     }
   }
@@ -161,15 +154,49 @@ public class Sorts {
   }
 
   public static void main(String[] args) {
-    String[] input = {"abhinav", "sarkar", "barista", "jordan", "data", 
-      "cata", "meta", "dota", "best", "recursion"};
-    Comparator<String> comparator = 
-      (s, anotherString) -> anotherString.compareTo(s);
+    AtomicInteger comparisons = new AtomicInteger(0);
+    Comparator<String> comparator = (s1, s2) -> {
+      comparisons.getAndIncrement();
+      return s2.compareTo(s1);
+    };
 
-    System.out.println(Arrays.toString(selectionSort(input, comparator)));
-    System.out.println(Arrays.toString(insertionSort(input, comparator)));
-    System.out.println(Arrays.toString(mergeSort(input, comparator)));
-    System.out.println(Arrays.toString(quickSort(input, comparator)));
+    comparisons.set(0);
+    System.out.printf("selectionSort\n Result = %s\n Comparisons = %d\n",
+      Arrays.toString(selectionSort(mkInput(), comparator)), comparisons.get());
+
+    comparisons.set(0);
+    System.out.printf("insertionSort\n Result = %s\n Comparisons = %d\n",
+      Arrays.toString(insertionSort(mkInput(), comparator)), comparisons.get());
+
+    comparisons.set(0);
+    System.out.printf("mergeSort\n Result = %s\n Comparisons = %d\n",
+      Arrays.toString(mergeSort(mkInput(), comparator)), comparisons.get());
+
+    comparisons.set(0);
+    System.out.printf("quickSort\n Result = %s\n Comparisons = %d\n",
+      Arrays.toString(quickSort(mkInput(), comparator)), comparisons.get());
+
+  }
+
+  private static String[] mkInput() {
+    return new String[]{"abhinav", "sarkar", "barista", "jordan", "data",
+                        "cata", "meta", "dota", "best", "recursion"};
   }
 }
+```
+
+Output:
+```plain
+selectionSort
+ Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
+ Comparisons = 45
+insertionSort
+ Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
+ Comparisons = 35
+mergeSort
+ Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
+ Comparisons = 24
+quickSort
+ Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
+ Comparisons = 26
 ```
