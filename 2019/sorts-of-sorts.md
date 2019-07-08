@@ -5,14 +5,25 @@ tags: programming java algorithm
 
 # Sorts of Sorts
 
-I wrote some of the popular sorting algorithms in Java for fun and practice.
+I wrote some of the popular sorting algorithms in Java for fun and practice:
+- Seletion sort
+- Insertion sort
+- Merge sort
+- Quick sort
+- Heap sort
 
 ```java
 package net.abhinavsarkar.sorts;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.BiFunction;
+import java.util.stream.Stream;
 
 public class Sorts {
   @FunctionalInterface
@@ -142,6 +153,48 @@ public class Sorts {
 
     return firstHigh;
   }
+  
+  public static <T> T[] heapSort(T[] input, Comparator<T> comparator) {
+    if (input.length <= 1) {
+      return input;
+    }
+
+    heapify(input, comparator);
+    deheapify(input, comparator);
+    return input;
+  }
+
+  private static <T> void heapify(T[] input, Comparator<T> comparator) {
+    for (int i = (input.length - 1)/2; i >= 0; i--) {
+      bubbleDown(input, i, input.length, comparator);
+    }
+  }
+
+  private static <T> void deheapify(T[] input, Comparator<T> comparator) {
+    for (int i = input.length; i > 1; i--) {
+      swap(input, 0, i - 1);
+      bubbleDown(input, 0, i - 1, comparator);
+    }
+  }
+
+  private static <T> void bubbleDown(
+      T[] input, int index, int size, Comparator<T> comparator) {
+    int maxIdx = index;
+    maxIdx = getMaxIdx(input, index * 2 + 1, maxIdx, size, comparator);
+    maxIdx = getMaxIdx(input, index * 2 + 2, maxIdx, size, comparator);
+    if (index != maxIdx) {
+      swap(input, index, maxIdx);
+      bubbleDown(input, maxIdx, size, comparator);
+    }
+  }
+
+  private static <T> int getMaxIdx(
+      T[] input, int childIndex, int minIndex, int size, 
+      Comparator<T> comparator) {
+    return childIndex < size 
+              && comparator.compare(input[minIndex], input[childIndex]) < 0 ?
+            childIndex : minIndex;
+  }
 
   private static <T> void swap(T[] input, int i, int j) {
     if (i == j) {
@@ -153,50 +206,78 @@ public class Sorts {
     input[j] = temp;
   }
 
-  public static void main(String[] args) {
+  // let's sort 10000 shuffled words with each algorithm
+  public static void main(String[] args) throws IOException {
     AtomicInteger comparisons = new AtomicInteger(0);
     Comparator<String> comparator = (s1, s2) -> {
       comparisons.getAndIncrement();
       return s2.compareTo(s1);
     };
 
-    comparisons.set(0);
-    System.out.printf("selectionSort\n Result = %s\n Comparisons = %d\n",
-      Arrays.toString(selectionSort(mkInput(), comparator)), comparisons.get());
+    String[] input, output;
+    try (Stream<String> lines = Files.lines(Paths.get("/usr/share/dict/words"))) {
+      input = lines.limit(10000).toArray(String[]::new);
+    }
+    shuffle(input);
 
-    comparisons.set(0);
-    System.out.printf("insertionSort\n Result = %s\n Comparisons = %d\n",
-      Arrays.toString(insertionSort(mkInput(), comparator)), comparisons.get());
+    String[] expected = arraySort(copyInput(input));
 
-    comparisons.set(0);
-    System.out.printf("mergeSort\n Result = %s\n Comparisons = %d\n",
-      Arrays.toString(mergeSort(mkInput(), comparator)), comparisons.get());
-
-    comparisons.set(0);
-    System.out.printf("quickSort\n Result = %s\n Comparisons = %d\n",
-      Arrays.toString(quickSort(mkInput(), comparator)), comparisons.get());
-
+    runSort("build-in sort",
+      Sorts::arraySort, comparator, comparisons, input, expected);
+    runSort("selectionSort",
+      Sorts::selectionSort, comparator, comparisons, input, expected);
+    runSort("insertionSort",
+      Sorts::insertionSort, comparator, comparisons, input, expected);
+    runSort("mergeSort",
+      Sorts::mergeSort, comparator, comparisons, input, expected);
+    runSort("quickSort",
+      Sorts::quickSort, comparator, comparisons, input, expected);
+    runSort("heapSort",
+      Sorts::heapSort, comparator, comparisons, input, expected);
   }
 
-  private static String[] mkInput() {
-    return new String[]{"abhinav", "sarkar", "barista", "jordan", "data",
-                        "cata", "meta", "dota", "best", "recursion"};
+  private static void runSort(String title,
+      BiFunction<String[], Comparator<String>, String[]> sorter,
+      Comparator<String> comparator,
+      AtomicInteger comparisonCounter,
+      String[] input,
+      String[] expected) {
+    comparisonCounter.set(0);
+    String[] output = sorter.apply(copyInput(input), comparator);
+    System.out.printf("%s\n Match = %s\n Comparisons = %d\n",
+      title, Arrays.equals(output, expected), comparisonCounter.get());
+  }
+
+  private static String[] arraySort(
+      String[] input, Comparator<String> comparator) {
+    Arrays.sort(input, comparator::compare);
+    return input;
+  }
+
+  private static String[] copyInput(String[] input) {
+    return Arrays.copyOf(input, input.length);
   }
 }
 ```
 
 Output:
 ```plain
+build-in sort
+ Match = true
+ Comparisons = 120402
 selectionSort
- Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
- Comparisons = 45
+ Match = true
+ Comparisons = 49995000
 insertionSort
- Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
- Comparisons = 35
+ Match = true
+ Comparisons = 25146028
 mergeSort
- Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
- Comparisons = 24
+ Match = true
+ Comparisons = 120359
 quickSort
- Result = [sarkar, recursion, meta, jordan, dota, data, cata, best, barista, abhinav]
- Comparisons = 26
+ Match = true
+ Comparisons = 173217
+heapSort
+ Match = true
+ Comparisons = 235382
 ```
