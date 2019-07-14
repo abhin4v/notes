@@ -1,5 +1,6 @@
 # general
 
+- *2019-07-14* [2019/minimal-reception](./2019/minimal-reception)
 - *2019-06-15* [2019/sand-boat](./2019/sand-boat)
 - *2019-06-14* [2019/lightening](./2019/lightening)
 - *2019-06-11* [2019/beginnings](./2019/beginnings)
