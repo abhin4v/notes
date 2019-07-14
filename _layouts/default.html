@@ -65,6 +65,22 @@
     <main>
       {{ content }}
     </main>
+    {% if page.date %}
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_config = function () {
+    this.page.url = '{{ site.github.url }}{{ page.url | split: "." | first }}';
+    this.page.identifier = '{{ page.url | split: "." | first }}';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://abhinavsarkarnet.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% endif %}
     <footer>
       Powered by <a href="https://abhin4v.github.io/precis/">Precis</a>
       <a style="float: right" href="https://abhinavsarkar.net">abhinavsarkar.net</a>
