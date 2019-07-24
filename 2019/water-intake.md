@@ -1,6 +1,6 @@
 ---
 date: 2019-07-18
-tags: general observations
+tags: observations general
 ---
 
 # Water Intake Chart

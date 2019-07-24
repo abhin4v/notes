@@ -1,6 +1,6 @@
 ---
 date: 2019-06-12
-tags: meetings observations
+tags: observations
 ---
 
 # To Meet or Not to Meet

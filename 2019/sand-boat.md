@@ -1,6 +1,6 @@
 ---
 date: 2019-06-15
-tags: general photo
+tags: photo general
 layout: photo
 image_name: f75f98d9ca79b0fa89eabe45eb47494d
 image_title: Boat on Sand Waves. Taken in Goa, India.

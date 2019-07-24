@@ -1,6 +1,6 @@
 ---
 date: 2019-07-14
-tags: general photo
+tags: photo general
 layout: photo
 image_name: VzG6muJKN50eVsk0wW8GcEdmDmShfsIq
 image_title: A minimal reception. Taken in one of the corporate offices in Bangalore, India.

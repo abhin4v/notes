@@ -11,7 +11,6 @@ Short notes about things I come across and ideas I run into.
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
 - [java](./tags/java)
-- [meetings](./tags/meetings)
 - [observations](./tags/observations)
 - [photo](./tags/photo)
 - [programming](./tags/programming)
