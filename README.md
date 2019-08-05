@@ -8,16 +8,19 @@ Short notes about things I come across and ideas I run into.
 - [algorithm](./tags/algorithm)
 - [architecture](./tags/architecture)
 - [caching](./tags/caching)
+- [checklist](./tags/checklist)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
 - [java](./tags/java)
 - [observations](./tags/observations)
 - [photo](./tags/photo)
 - [programming](./tags/programming)
+- [travel](./tags/travel)
 - [video](./tags/video)
 
 ## Notes
 
+- *2019-08-05* [2019/trip-checklist](./2019/trip-checklist)
 - *2019-07-30* [2019/midsummer-festival](./2019/midsummer-festival)
 - *2019-07-29* [2019/tokyo-roads](./2019/tokyo-roads)
 - *2019-07-24* [2019/mountain-road](./2019/mountain-road)
