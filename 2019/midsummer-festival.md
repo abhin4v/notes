@@ -1,6 +1,6 @@
 ---
 date: 2019-07-30
-tags: photo general
+tags: photo travel
 layout: photo
 image_name: fba88b926bab55be2a8cd6a3e30219bb
 image_title: A midsummer festival. Taken in Osaka, Japan.
