@@ -14,5 +14,5 @@ Bangalore – the city I live in India – is notorious for its traffic woes. My
 
 So in short, ditch that car and get a bicycle. Make your cities more bicycle friendly and your commutes healthier.
 
-[Strave]: https://strava.com
+[Strava]: https://strava.com
 [image]: /files/commute-duration/histogram.png
