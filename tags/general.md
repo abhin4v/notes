@@ -1,5 +1,6 @@
 # general
 
+- *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)
 - *2019-08-30* [2019/commute-duration](./2019/commute-duration)
 - *2019-07-24* [2019/mountain-road](./2019/mountain-road)
 - *2019-07-18* [2019/water-intake](./2019/water-intake)

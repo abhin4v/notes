@@ -1,5 +1,6 @@
 # photo
 
+- *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)
 - *2019-07-30* [2019/midsummer-festival](./2019/midsummer-festival)
 - *2019-07-29* [2019/tokyo-roads](./2019/tokyo-roads)
 - *2019-07-24* [2019/mountain-road](./2019/mountain-road)
