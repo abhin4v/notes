@@ -20,6 +20,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2020-01-31* [2020/high](./2020/high)
 - *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)
 - *2019-08-30* [2019/commute-duration](./2019/commute-duration)
 - *2019-08-05* [2019/trip-checklist](./2019/trip-checklist)
