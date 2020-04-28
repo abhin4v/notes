@@ -30,16 +30,16 @@ component [Drone CI] #LightPink
 component [Docker Compose] #LightPink
 component [hooks.abhinavsarkar.net] #LightPink
 component [abhinavsarkar.net] #LightPink
-component [notes.abhinavsarkar.net] #LightPink
 
 (start) -d-> [Me]
 [Me] -r-> [code.abhinavsarkar.net]: Pushes code
 [code.abhinavsarkar.net] -r-> [Drone CI]: Triggers build
-[Strava] --> [Drone CI]: Pulls activities
-[Goodreads] --> [Drone CI]: Pulls books read
-[notes.abhinavsarkar.net] --> [Drone CI]: Pulls notes
-[Drone CI] --> [Drone CI]: Builds website docker image
-[Drone CI] -d-> [Docker Hub]: Pushes website docker image
+[Strava] -d-> [Drone CI]: Pulls activities
+[Goodreads] -d-> [Drone CI]: Pulls books read
+[Reddit / lobste.rs] -d-> [Drone CI]: Pulls post comments
+[webmentions.io] -d-> [Drone CI]: Pulls likes and mentions
+[notes.abhinavsarkar.net] -l-> [Drone CI]: Pulls notes
+[Drone CI] -d-> [Docker Hub]: Builds and pushes website docker image
 [Docker Hub] -l-> [hooks.abhinavsarkar.net]: Triggers webhook
 [hooks.abhinavsarkar.net] -d-> [Docker Compose]: Runs docker compose pull/up
 [Docker Compose] -r-> [abhinavsarkar.net]: Pulls and deploys built website image
