@@ -11,8 +11,10 @@ Short notes about things I come across and ideas I run into.
 - [checklist](./tags/checklist)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
+- [health](./tags/health)
 - [java](./tags/java)
 - [observations](./tags/observations)
+- [personal](./tags/personal)
 - [photo](./tags/photo)
 - [programming](./tags/programming)
 - [travel](./tags/travel)
@@ -20,6 +22,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2020-05-11* [2020/lockdown-effects](./2020/lockdown-effects)
 - *2020-01-31* [2020/high](./2020/high)
 - *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)
 - *2019-08-30* [2019/commute-duration](./2019/commute-duration)
