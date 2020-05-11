@@ -50,6 +50,11 @@ body.remarkdown {
   main > p > img {
     width: 100%;
   }
+
+  main > p > img + a {
+    text-align: center;
+    display: block;
+  }
   
   h1 {
     font-weight: bold;
