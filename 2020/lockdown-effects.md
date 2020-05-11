@@ -1,6 +1,6 @@
 ---
 date: 2020-05-11
-tags: personal health
+tags: personal health observations
 ---
 
 # Health Effects of the COVID-19 Lockdown
