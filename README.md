@@ -22,6 +22,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2020-07-05* [2020/covid-india-charts](./2020/covid-india-charts)
 - *2020-05-11* [2020/lockdown-effects](./2020/lockdown-effects)
 - *2020-01-31* [2020/high](./2020/high)
 - *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)
