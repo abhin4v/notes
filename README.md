@@ -7,6 +7,7 @@ Short notes about things I come across and ideas I run into.
 - [CI](./tags/CI)
 - [algorithm](./tags/algorithm)
 - [architecture](./tags/architecture)
+- [book](./tags/book)
 - [caching](./tags/caching)
 - [checklist](./tags/checklist)
 - [distributed-systems](./tags/distributed-systems)
@@ -17,11 +18,13 @@ Short notes about things I come across and ideas I run into.
 - [personal](./tags/personal)
 - [photo](./tags/photo)
 - [programming](./tags/programming)
+- [review](./tags/review)
 - [travel](./tags/travel)
 - [video](./tags/video)
 
 ## Notes
 
+- *2020-07-10* [2020/childhoods-end-review](./2020/childhoods-end-review)
 - *2020-07-05* [2020/covid-india-charts](./2020/covid-india-charts)
 - *2020-05-11* [2020/lockdown-effects](./2020/lockdown-effects)
 - *2020-01-31* [2020/high](./2020/high)
