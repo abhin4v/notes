@@ -38,6 +38,6 @@ And here's the histogram for deep and awake stage durations:
 ![Deep/awake duration histogram](/files/sleep-analysis/deep-awake.svg "Deep/awake duration histogram")
 [Deep/awake duration histogram](/files/sleep-analysis/deep-awake.svg)
 
-So, I usually have five hours of light sleep and three hours or REM sleep. My deep sleep duration is almost zero and I'm usually awake for 5–10 minutes.
+So, I usually have five hours of light sleep and three hours of REM sleep. My deep sleep duration is almost zero and I'm usually awake for 5–10 minutes.
 
 It is interesting to get these insights into my sleep patterns. I hope to use it make my sleep even better. Until next time, happy napping!
