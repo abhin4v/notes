@@ -4,12 +4,9 @@ Short notes about things I come across and ideas I run into.
 
 ## Tags
 
-- [CI](./tags/CI)
 - [algorithm](./tags/algorithm)
 - [architecture](./tags/architecture)
 - [book](./tags/book)
-- [caching](./tags/caching)
-- [checklist](./tags/checklist)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
 - [health](./tags/health)

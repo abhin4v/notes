@@ -1,6 +1,6 @@
 ---
 date: 2019-06-21
-tags: architecture CI
+tags: architecture distributed-systems
 ---
 
 # CI pipeline of abhinavsarkar.net

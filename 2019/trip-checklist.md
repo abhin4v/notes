@@ -1,6 +1,6 @@
 ---
 date: 2019-08-05
-tags: checklist travel
+tags: travel
 ---
 
 # Trip Checklist
