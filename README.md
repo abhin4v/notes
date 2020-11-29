@@ -18,9 +18,11 @@ Short notes about things I come across and ideas I run into.
 - [review](./tags/review)
 - [travel](./tags/travel)
 - [video](./tags/video)
+- [weeknotes](./tags/weeknotes)
 
 ## Notes
 
+- *2020-11-29* [2020/weeknotes-11-29](./2020/weeknotes-11-29)
 - *2020-08-09* [2020/sleep-analysis](./2020/sleep-analysis)
 - *2020-08-07* [2020/rain-by-lake](./2020/rain-by-lake)
 - *2020-08-01* [2020/desert-orchard](./2020/desert-orchard)
