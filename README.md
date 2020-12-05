@@ -5,10 +5,12 @@ Short notes about things I come across and ideas I run into.
 ## Tags
 
 - [algorithm](./tags/algorithm)
+- [aoc](./tags/aoc)
 - [architecture](./tags/architecture)
 - [book](./tags/book)
 - [distributed-systems](./tags/distributed-systems)
 - [general](./tags/general)
+- [haskell](./tags/haskell)
 - [health](./tags/health)
 - [java](./tags/java)
 - [observations](./tags/observations)
@@ -22,6 +24,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2020-12-05* [2020/aoc-wk1](./2020/aoc-wk1)
 - *2020-11-29* [2020/weeknotes-11-29](./2020/weeknotes-11-29)
 - *2020-08-09* [2020/sleep-analysis](./2020/sleep-analysis)
 - *2020-08-07* [2020/rain-by-lake](./2020/rain-by-lake)
