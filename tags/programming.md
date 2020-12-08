@@ -1,6 +1,6 @@
 # programming
 
-- *2020-12-07* [2020/aoc-wk2](./2020/aoc-wk2)
+- *2020-12-08* [2020/aoc-wk2](./2020/aoc-wk2)
 - *2020-12-05* [2020/aoc-wk1](./2020/aoc-wk1)
 - *2020-07-05* [2020/covid-india-charts](./2020/covid-india-charts)
 - *2019-07-07* [2019/sorts-of-sorts](./2019/sorts-of-sorts)

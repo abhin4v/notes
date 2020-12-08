@@ -1,5 +1,5 @@
 ---
-date: 2020-12-07
+date: 2020-12-08
 tags: programming aoc haskell
 ---
 
@@ -76,4 +76,54 @@ bagCount color =
   in sum (map fst colors) + sum (map (\(c, col) -> c * bagCount col) colors)
 :}
 bagCount "shinygold" -- part 2
+```
+
+## Day 8
+
+Problem: <https://adventofcode.com/2020/day/8>
+
+Solution:
+
+```haskell
+-- First, copy-paste the parser framework from day 7
+-- Next, parse the input:
+:{
+argument = (\s n -> case s of { '-' -> negate n; '+' -> n } )
+  <$> (char '+' <|> char '-') <*> num
+:}
+data Instruction = Acc | Jmp | Nop deriving (Show)
+import Data.Functor (($>))
+instruction = string "acc" $> Acc <|> string "nop" $> Nop <|> string "jmp" $> Jmp
+program = ((,) <$> (instruction <* space) <*> argument) `separatedBy` char '\n'
+
+-- Finally, solve it using an interpreter:
+Just input <- flip runParser program <$> readFile "/tmp/input8"
+import qualified Data.Set as Set
+:{
+interpret seen acc pc = if Set.member pc seen then acc else
+  let (ins, arg) = input !! pc
+      seen' = Set.insert pc seen
+  in case ins of
+    Nop -> interpret seen' acc (pc + 1)
+    Acc -> interpret seen' (acc + arg) (pc + 1)
+    Jmp -> interpret seen' acc (pc + arg)
+:}
+interpret Set.empty 0 0 -- part 1
+:{
+interpret' seen acc pc moded
+  | length input == pc = Right acc
+  | Set.member pc seen = Left acc
+  | otherwise = let
+      (ins, arg) = input !! pc
+      seen' = Set.insert pc seen
+      interpretNop = interpret' seen' acc (pc + 1)
+      interpretJmp = interpret' seen' acc (pc + arg)
+    in case ins of
+      Acc -> interpret' seen' (acc + arg) (pc + 1) moded
+      Nop | moded -> interpretNop True
+      Nop -> either (const $ interpretJmp True) Right $ interpretNop False
+      Jmp | moded -> interpretJmp True
+      Jmp -> either (const $ interpretNop True) Right $ interpretJmp False
+:}
+interpret' Set.empty 0 0 False -- part 2
 ```
