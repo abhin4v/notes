@@ -1,5 +1,5 @@
 ---
-date: 2020-12-08
+date: 2020-12-09
 tags: programming aoc haskell
 ---
 
@@ -126,4 +126,38 @@ interpret' seen acc pc moded
       Jmp -> either (const $ interpretNop True) Right $ interpretJmp False
 :}
 interpret' Set.empty 0 0 False -- part 2
+```
+
+## Day 9
+
+Problem: <https://adventofcode.com/2020/day/9>
+
+Solution:
+
+```haskell
+isValid xs x = x `elem` [ a + b | a <- xs, b <- xs, a /= b ]
+:{
+findInvalid xs
+  | null xs = Nothing
+  | length xs <= 25 = Nothing
+  | isValid as b = findInvalid (tail xs)
+  | otherwise = Just b
+      where (as, bs@(b:_)) = splitAt 25 xs
+:}
+input <- map read . lines <$> readFile "/tmp/input9" :: IO [Int]
+Just part1 = findInvalid input
+:{
+sliding [] _ = []
+sliding xs size
+  | length xs >= size = (take size xs) : sliding (drop 1 xs) size
+  | otherwise = []
+:}
+ranges xs = concatMap (sliding xs) $ [2..(length xs)]
+:{
+part2 = head
+  . map (\range -> maximum range + minimum range)
+  . filter ((== part1) . sum)
+  . ranges
+  $ input
+:}
 ```
