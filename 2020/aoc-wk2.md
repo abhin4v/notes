@@ -1,5 +1,5 @@
 ---
-date: 2020-12-09
+date: 2020-12-10
 tags: programming aoc haskell
 ---
 
@@ -11,6 +11,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 7](2020/aoc-wk2#day-7)
 - [Day 8](2020/aoc-wk2#day-8)
 - [Day 9](2020/aoc-wk2#day-9)
+- [Day 10](2020/aoc-wk2#day-10)
 
 ## Day 6
 
@@ -147,17 +148,17 @@ findInvalid xs
   | length xs <= 25 = Nothing
   | isValid as b = findInvalid (tail xs)
   | otherwise = Just b
-      where (as, bs@(b:_)) = splitAt 25 xs
+      where (as, (b:_)) = splitAt 25 xs
 :}
 input <- map read . lines <$> readFile "/tmp/input9" :: IO [Int]
 Just part1 = findInvalid input
 :{
 sliding [] _ = []
 sliding xs size
-  | length xs >= size = (take size xs) : sliding (drop 1 xs) size
+  | length xs >= size = take size xs : sliding (drop 1 xs) size
   | otherwise = []
 :}
-ranges xs = concatMap (sliding xs) $ [2..(length xs)]
+ranges xs = concatMap (sliding xs) [2..(length xs)]
 :{
 part2 = head
   . map (\range -> maximum range + minimum range)
@@ -165,4 +166,31 @@ part2 = head
   . ranges
   $ input
 :}
+```
+
+## Day 10
+
+Problem: <https://adventofcode.com/2020/day/10>
+
+Solution:
+
+```haskell
+import Data.List (sort)
+input <- (0:) . sort . map read . lines <$> readFile "/tmp/input10" :: IO [Int]
+diffs = 3 : zipWith (-) (tail input) input
+count n = length . filter (== n)
+count 1 diffs * count 3 diffs -- part 1
+sliding xs = if null xs then [] else take 4 xs : sliding (drop 1 xs)
+edges = map (\(x:xs) -> (x, [y | y <- xs, y <= x + 3])) $ sliding input
+import Data.Maybe (fromMaybe, fromJust)
+import Data.Function (fix)
+memoize f = flip lookup (map f input)
+:{
+arrCount = fix (memoize . go)
+  where
+    go f x = if x == goal then (goal, 1)
+      else (x, sum . map (fromJust . f) . fromMaybe [] $ lookup x edges)
+    goal = last input
+:}
+arrCount 0 -- part 2
 ```
