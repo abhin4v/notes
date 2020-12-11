@@ -1,5 +1,5 @@
 ---
-date: 2020-12-10
+date: 2020-12-11
 tags: programming aoc haskell
 ---
 
@@ -12,6 +12,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 8](2020/aoc-wk2#day-8)
 - [Day 9](2020/aoc-wk2#day-9)
 - [Day 10](2020/aoc-wk2#day-10)
+- [Day 11](2020/aoc-wk2#day-11)
 
 ## Day 6
 
@@ -168,7 +169,7 @@ part2 = head
 :}
 ```
 
-## Day 10
+## Day 11
 
 Problem: <https://adventofcode.com/2020/day/10>
 
@@ -193,4 +194,143 @@ arrCount = fix (memoize . go)
     goal = last input
 :}
 arrCount 0 -- part 2
+```
+
+## Day 11
+
+Problem: <https://adventofcode.com/2020/day/10>
+
+Solution:
+
+```haskell
+:set -XDeriveFunctor
+:set -XLambdaCase
+import qualified Data.Sequence as S
+import Data.Sequence (Seq(..), (|>), (<|), (><))
+
+-- First, data types for list zipper and celluar automata universe
+data Z a = Z (S.Seq a) a (S.Seq a) deriving (Show, Eq, Functor)
+newtype Univ a = Univ (Z (Z a)) deriving (Show, Eq, Functor)
+
+-- next, function to move around the universe
+zLeft z@(Z l f r) = case l of { S.Empty -> z; xs :|> x -> Z xs x (f <| r) }
+zRight z@(Z l f r) = case r of { S.Empty -> z; x :<| xs -> Z (l |> f) x xs }
+up (Univ z) = Univ $ zLeft z
+down (Univ z) = Univ $ zRight z
+left (Univ z) = Univ $ fmap zLeft z
+right (Univ z) = Univ $ fmap zRight z
+
+-- next, functions to measure the universe
+zPos (Z l _ _) = S.length l
+zLength (Z a _ b) = S.length a + S.length b + 1
+uPos (Univ (Z a f _)) = (S.length a, zPos f)
+uRowCount (Univ z) = zLength z
+uColCount (Univ (Z _ z _)) = zLength z
+
+-- next, functions to convert to and from the universe
+:{
+toUniv rows =
+  let (first :<| rest) = fmap (\(cell :<| cells) -> Z S.empty cell cells) rows
+  in Univ $ Z S.empty first rest
+fromUniv (Univ (Z l f r)) = (fmap toSeq l |> toSeq f) >< fmap toSeq r
+  where
+    toSeq (Z l f r) = (l |> f) >< r
+:}
+
+-- next, Comonad instances of the list zipper and the universe
+import Control.Comonad
+:{
+instance Comonad Z where
+  extract (Z _ f _) = f
+  duplicate z = Z l z r
+    where
+      l = S.reverse $ S.iterateN (zPos z) zLeft $ zLeft z
+      r = S.iterateN (zLength z - zPos z - 1) zRight $ zRight z
+instance Comonad Univ where
+  extract (Univ u) = extract $ extract u
+  duplicate u@(Univ univ) = Univ $ Z l f r
+    where
+      uf = extract univ
+      f = Z fl u fr
+      fl = S.reverse $ S.iterateN (zPos uf) left (left u)
+      fr = S.iterateN (zLength uf - zPos uf - 1) right (right u)
+      l = S.reverse $ S.iterateN (zPos univ) (fmap up) (fmap up f)
+      r = S.iterateN (zLength univ - zPos univ - 1) (fmap down) (fmap down f)
+:}
+
+-- next, model the seats
+data Seat = Empty | Occupied | Floor deriving (Eq)
+instance Show Seat where show = \case { Empty -> "L"; Occupied -> "#"; Floor -> "." }
+toSeat = \case { 'L' -> Empty; '.' -> Floor; '#' -> Occupied }
+
+-- next, read and measure the input
+:{
+input <- S.fromList 
+  . map (S.fromList . map toSeat) 
+  . lines 
+  <$> readFile "/tmp/input11"
+:}
+inputRowCount = S.length input
+inputColCount = let (row :<| _) = input in S.length row
+validIndex (x, y) = and [x >= 0, y >= 0, x < inputRowCount, y < inputColCount]
+
+-- next, rules for finding neighbours and occupying seats for part 1
+:{
+neightbours1 grid (x, y) = [
+    grid `S.index` (x + i) `S.index` (y + j)
+  | i <- [-1, 0, 1], j <- [-1, 0, 1]
+  , validIndex (x + i, y + j)
+  , (x + i, y + j) /= (x, y)
+  ]
+rule1 univ = let
+    ns = neightbours1 (fromUniv univ) $ uPos univ
+    f = extract univ
+    occupied = [() | n <- ns, n == Occupied]
+  in case f of
+       Empty | null occupied -> Occupied
+       Occupied | length occupied >= 4 -> Empty
+       _ -> f
+:}
+
+-- next, run the automata till it settles and count the occupied seats
+fix f x = let x' = f x in if x == x' then x else fix f x'
+:{
+finallyOccupiedSeatCount rule = sum
+  . fmap (S.length . S.filter (== Occupied))
+  . fromUniv
+  . fix (extend rule)
+  $ toUniv input
+:}
+
+-- finally, count of occupied seats for part 1.
+finallyOccupiedSeatCount rule1
+
+-- Next, rules for finding neighbours and occupying seats for part 2
+inputDiaCount = ceiling $ sqrt 2 * fromIntegral (min inputRowCount inputColCount)
+:{
+neighbours2 grid (x, y) =
+  map (map (\(x', y') -> grid `S.index` x' `S.index` y')) indices
+  where
+    indices = map (filter validIndex) [
+        [(i, y) | i <- [x-1, x-2 .. 0]]
+      , [(i, y) | i <- [x+1 .. inputRowCount-1]]
+      , [(x, j) | j <- [y-1, y-2 .. 0]]
+      , [(x, j) | j <- [y+1 .. inputColCount-1]]
+      , [(x+i, y+i) | i <- [1.. inputDiaCount]]
+      , [(x+i, y-i) | i <- [1.. inputDiaCount]]
+      , [(x-i, y-i) | i <- [1.. inputDiaCount]]
+      , [(x-i, y+i) | i <- [1.. inputDiaCount]]
+      ]
+rule2 univ = let
+    nss = neighbours2 (fromUniv univ) $ uPos univ
+    f = extract univ
+    occupied = [() | ns <- nss, take 1 (dropWhile (== Floor) ns) == [Occupied]]
+  in case f of
+       Empty | null occupied -> Occupied
+       Occupied | length occupied >= 5 -> Empty
+       _ -> f
+:}
+
+-- and, count of occupied seats for part 2
+finallyOccupiedSeatCount rule2
 ```

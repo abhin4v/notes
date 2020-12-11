@@ -24,7 +24,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
-- *2020-12-10* [2020/aoc-wk2](./2020/aoc-wk2)
+- *2020-12-11* [2020/aoc-wk2](./2020/aoc-wk2)
 - *2020-12-06* [2020/weeknotes-12-06](./2020/weeknotes-12-06)
 - *2020-12-05* [2020/aoc-wk1](./2020/aoc-wk1)
 - *2020-11-29* [2020/weeknotes-11-29](./2020/weeknotes-11-29)
