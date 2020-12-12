@@ -1,5 +1,5 @@
 ---
-date: 2020-12-11
+date: 2020-12-12
 tags: programming aoc haskell
 ---
 
@@ -13,6 +13,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 9](2020/aoc-wk2#day-9)
 - [Day 10](2020/aoc-wk2#day-10)
 - [Day 11](2020/aoc-wk2#day-11)
+- [Day 12](2020/aoc-wk2#day-12)
 
 ## Day 6
 
@@ -265,9 +266,9 @@ toSeat = \case { 'L' -> Empty; '.' -> Floor; '#' -> Occupied }
 
 -- next, read and measure the input
 :{
-input <- S.fromList 
-  . map (S.fromList . map toSeat) 
-  . lines 
+input <- S.fromList
+  . map (S.fromList . map toSeat)
+  . lines
   <$> readFile "/tmp/input11"
 :}
 inputRowCount = S.length input
@@ -333,4 +334,44 @@ rule2 univ = let
 
 -- and, count of occupied seats for part 2
 finallyOccupiedSeatCount rule2
+```
+
+## Day 12
+
+Problem: <https://adventofcode.com/2020/day/12>
+
+Solution:
+
+```haskell
+:set -XLambdaCase
+:{
+input <- map (\(x:xs) -> (x, read xs))
+  . lines <$> readFile "/tmp/input12" :: IO [(Char, Double)]
+:}
+radian deg = deg / 180 * pi
+:{
+run1 ((x, y), deg) = \case
+  ('N', del) -> ((x, y + del), deg)
+  ('S', del) -> ((x, y - del), deg)
+  ('E', del) -> ((x + del, y), deg)
+  ('W', del) -> ((x - del, y), deg)
+  ('L', del) -> ((x, y), (deg + del))
+  ('R', del) -> ((x, y), (deg - del))
+  ('F', del) -> ((x + del * cos (radian deg), y + del * sin (radian deg)), deg)
+:}
+let ((x, y), _) = foldl run1 ((0, 0), 0) input in abs x + abs y -- part 1
+
+:{
+run2 (pos@(x, y), wp@(wx, wy)) = \case
+  ('N', del) -> (pos, (wx, wy + del))
+  ('S', del) -> (pos, (wx, wy - del))
+  ('E', del) -> (pos, (wx + del, wy))
+  ('W', del) -> (pos, (wx - del, wy))
+  ('L', del) -> (pos, rotate (radian del))
+  ('R', del) -> (pos, rotate (- (radian del)))
+  ('F', del) -> ((x + wx * del, y + wy * del), wp)
+  where
+    rotate del = (wx * cos del - wy * sin del, wy * cos del + wx * sin del)
+:}
+let ((x, y), _) = foldl run2 ((0, 0), (10, 1)) input in abs x + abs y -- part 2
 ```
