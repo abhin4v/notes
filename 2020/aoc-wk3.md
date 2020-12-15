@@ -1,5 +1,5 @@
 ---
-date: 2020-12-14
+date: 2020-12-15
 tags: programming aoc haskell
 ---
 
@@ -9,6 +9,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 
 - [Day 13](2020/aoc-wk3#day-13)
 - [Day 14](2020/aoc-wk3#day-14)
+- [Day 15](2020/aoc-wk3#day-15)
 
 ## Day 13
 
@@ -92,4 +93,37 @@ run2 (mask, mem) = \case
       . reverse
 :}
 runProg run2 -- part 2
+```
+
+## Day 15
+
+Problem: <https://adventofcode.com/2020/day/15>
+
+Solution:
+
+```haskell
+:set -XLambdaCase
+:set -XStrict
+import qualified Data.Vector.Unboxed.Mutable as V
+import Control.Monad (forM_)
+:{
+play lastSaid (now:rest) n lastSaidTime =
+  if n == now
+  then return lastSaid
+  else do
+    lt <- V.read lastSaidTime lastSaid
+    V.write lastSaidTime lastSaid (now - 1)
+    if lt == -1
+      then play 0 rest n lastSaidTime
+      else play (now - 1 - lt) rest n lastSaidTime
+:}
+input = [8,13,1,0,18,9]
+start = length input + 1
+lastSaidTime <- V.replicate 2020 (-1) :: IO (V.IOVector Int)
+forM_ (zip input [1..]) $ \(x, i) -> V.write lastSaidTime x i
+play (last input) [start..] 2021 lastSaidTime >>= print -- part1
+
+lastSaidTime <- V.replicate 30000000 (-1) :: IO (V.IOVector Int)
+forM_ (zip input [1..]) $ \(x, i) -> V.write lastSaidTime x i
+play (last input) [start..] 30000001 lastSaidTime >>= print -- part2
 ```
