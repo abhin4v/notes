@@ -1,5 +1,5 @@
 ---
-date: 2020-12-15
+date: 2020-12-16
 tags: programming aoc haskell
 ---
 
@@ -10,6 +10,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 13](2020/aoc-wk3#day-13)
 - [Day 14](2020/aoc-wk3#day-14)
 - [Day 15](2020/aoc-wk3#day-15)
+- [Day 16](2020/aoc-wk3#day-16)
 
 ## Day 13
 
@@ -126,4 +127,59 @@ play (last input) [start..] 2021 lastSaidTime >>= print -- part1
 lastSaidTime <- V.replicate 30000000 (-1) :: IO (V.IOVector Int)
 forM_ (zip input [1..]) $ \(x, i) -> V.write lastSaidTime x i
 play (last input) [start..] 30000001 lastSaidTime >>= print -- part2
+```
+
+## Day 16
+
+Problem: <https://adventofcode.com/2020/day/16>
+
+Solution:
+
+```haskell
+-- First, copy-paste the parser framework from day 7
+-- Next, parse the input:
+import Data.List.Split (splitOn)
+input <- splitOn "\n\n" <$> readFile "/tmp/input16"
+fieldValP = (,) <$> (num <* char '-') <*> num
+fieldValsP = fieldValP `separatedBy` string " or "
+fieldNameP = word `separatedBy` space
+:{
+fieldSpecP = (\name val -> (concat name, val))
+  <$> (fieldNameP <* string ": ") <*> fieldValsP
+:}
+fieldSpecsP = fieldSpecP `separatedBy` char '\n'
+Just fieldSpecs = runParser (input !! 0) fieldSpecsP
+myTicket = map read . splitOn "," . (!! 1). lines $ input !! 1 :: [Int]
+nearbyTickets = map (map read . splitOn ",") . tail . lines $ (input !! 2) :: [[Int]]
+
+-- Next, solve the problem:
+:{
+invalidFields = filter $ \val ->
+  not $ any (\(_, ranges) -> any (\(x, y) -> val >= x && val <= y) ranges) fieldSpecs
+:}
+sum $ concatMap invalidFields nearbyTickets -- part 1
+
+validNearbyTickets = filter (null . invalidFields) nearbyTickets
+import Data.List (transpose, nub, isPrefixOf)
+:{
+fieldPossibilities = zip [0..]
+  . map (\vals -> nub . map fst $ filter (allValsInRange vals) fieldSpecs)
+  $ transpose validNearbyTickets
+  where
+    allValsInRange vals (name, ranges) =
+      all (\val -> any (\(x, y) -> val >= x && val <= y) ranges) vals
+prune possibilities =
+  if sum (map (length . snd) possibilities) == length possibilities
+  then map (fmap head) possibilities
+  else let fixedPossibilities = filter ((== 1) . length . snd) possibilities
+           prunedPossibilities = flip map possibilities $ \(id, fns) ->
+             if id `elem` map fst fixedPossibilities
+             then (id, fns)
+             else (id, filter (`notElem` concatMap snd fixedPossibilities) fns)
+       in prune prunedPossibilities
+part2 = product
+  . map ((myTicket !!) . fst)
+  . filter (("departure" `isPrefixOf`) . snd)
+  $ prune fieldPossibilities
+:}
 ```
