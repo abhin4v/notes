@@ -1,5 +1,5 @@
 ---
-date: 2020-12-17
+date: 2020-12-18
 tags: programming aoc haskell
 ---
 
@@ -12,6 +12,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 15](2020/aoc-wk3#day-15)
 - [Day 16](2020/aoc-wk3#day-16)
 - [Day 17](2020/aoc-wk3#day-17)
+- [Day 18](2020/aoc-wk3#day-18)
 
 ## Day 13
 
@@ -195,7 +196,6 @@ Solution:
 
 ```haskell
 -- run with  +RTS -H8g -A64m -n4m -s -qg0 -N
-{-# LANGUAGE LambdaCase #-}
 module Main where
 
 import Control.Comonad (Comonad(..))
@@ -259,7 +259,7 @@ instance Comonad Z3 where
 data State = Active | Inactive deriving (Show, Eq)
 
 readInput :: [String] -> [[State]]
-readInput = map (map (\case {'.'  -> Inactive; ~'#' -> Active}))
+readInput = map (map (\x -> case x of {'.'  -> Inactive; ~'#' -> Active}))
 
 inactiveLine :: Z State
 inactiveLine = Z (repeat Inactive) Inactive (repeat Inactive)
@@ -391,4 +391,67 @@ main = do
   print
     $ finalActiveCount cycles (mkRule neighbours4d1) neighbours4dFinal
     $ inputTo4dGrid states
+```
+
+## Day 18
+
+Problem: <https://adventofcode.com/2020/day/18>
+
+Solution:
+
+```haskell
+-- First, copy-paste the parser framework from day 7
+-- Next, write a tokenizer for the input:
+import Data.Functor (($>))
+data Token = Num Int | Plus | Mult | LeftParen | RightParen | Eof deriving (Show, Eq)
+:{
+tokenizer' = lookahead >>= \case
+  Nothing -> pure Eof
+  Just c -> case c of
+    '(' -> consume $> LeftParen
+    ')' -> consume $> RightParen
+    '+' -> consume $> Plus
+    '*' -> consume $> Mult
+    _ -> Num <$> num
+tokenizer = do
+  t <- many space *> tokenizer' <* many space
+  case t of
+    Eof -> return [Eof]
+    _   -> (t:) <$> tokenizer
+tokenize = flip runParser tokenizer
+:}
+
+-- Next, write a parser for the tokens:
+data Expr = Literal Int | Binary Expr Token Expr | Grouping Expr deriving (Show)
+import Data.Function (fix)
+:{
+binary ops parser = parser >>= loop
+  where
+    loop e = lookahead >>= \case
+      Just op | op `elem` ops -> consume >> parser >>= loop . (Binary e op)
+      _ -> return e
+primary expr = lookahead >>= \case
+  Just (Num n) -> consume >> return (Literal n)
+  Just LeftParen -> grouping expr
+grouping expr = consume *> expr <* consume
+expr1 = fix $ binary [Plus, Mult] . primary
+:}
+
+-- Next, write an interpreter for the expression:
+:{
+interpret = \case
+  Literal n -> n
+  Grouping e -> interpret e
+  Binary e1 Plus e2 -> interpret e1 + interpret e2
+  Binary e1 Mult e2 -> interpret e1 * interpret e2
+:}
+import Control.Monad ((>=>))
+evaluate parser = tokenize >=> flip runParser parser >=> return . interpret
+input <- lines <$> readFile "/tmp/input18"
+inputSum expr = fmap sum . traverse (evaluate expr) $ input
+inputSum expr1 -- part 1
+
+-- Write a new parser for the input:
+expr2 = fix $ binary [Mult] . binary [Plus] . primary
+inputSum expr2 -- part 2
 ```

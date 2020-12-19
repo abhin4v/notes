@@ -40,7 +40,7 @@ Solution:
 -- First, a parser framework from (almost) scratch:
 :set -XGeneralizedNewtypeDeriving
 :set -XLambdaCase
-import Control.Monad.State.Strict (MonadState(..), StateT, runStateT)
+import Control.Monad.State.Strict (MonadState(..), StateT, runStateT, modify)
 import Control.Monad.Trans.Maybe (MaybeT(..))
 import Control.Monad.Identity (Identity (..), runIdentity)
 import Control.Applicative (Alternative(..), optional)
@@ -51,12 +51,16 @@ runParser input =
   fmap fst . runIdentity . runMaybeT . flip runStateT input . runParser_
 satisfy :: (a -> Bool) -> Parser [a] a
 satisfy pr = get >>= \case { (c:cs) | pr c -> put cs >> return c; _ -> empty }
+lookahead :: Parser [a] (Maybe a)
+lookahead = get >>= \case { [] -> return Nothing; (c:_) -> return (Just c) }
+consume :: Parser [a] ()
+consume = modify tail
 :}
 char c = satisfy (== c)
 string = \case { "" -> pure ""; (c:cs) -> (:) <$> char c <*> string cs }
 import Data.Char (digitToInt, isDigit, isAlpha)
 digit = digitToInt <$> satisfy isDigit
-num = foldl1 (\num d -> num * 10 + d) <$> some digit
+num = foldl1 (\n d -> n * 10 + d) <$> some digit
 space = char ' '
 word = some $ satisfy isAlpha
 separatedBy v s = (:) <$> v <*> many (s *> v) <|> pure []
