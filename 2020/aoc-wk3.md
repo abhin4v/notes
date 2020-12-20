@@ -1,5 +1,5 @@
 ---
-date: 2020-12-18
+date: 2020-12-19
 tags: programming aoc haskell
 ---
 
@@ -13,6 +13,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 16](2020/aoc-wk3#day-16)
 - [Day 17](2020/aoc-wk3#day-17)
 - [Day 18](2020/aoc-wk3#day-18)
+- [Day 19](2020/aoc-wk3#day-19)
 
 ## Day 13
 
@@ -454,4 +455,45 @@ inputSum expr1 -- part 1
 -- Write a new parser for the input:
 expr2 = fix $ binary [Mult] . binary [Plus] . primary
 inputSum expr2 -- part 2
+```
+
+## Day 19
+
+Problem: <https://adventofcode.com/2020/day/19>
+
+Solution:
+
+```haskell
+import qualified Text.ParserCombinators.ReadP as P
+import Data.Char (isDigit, isAlpha)
+import Control.Applicative ((<|>))
+import Data.List (foldl1)
+import Data.Maybe (fromJust)
+data R = R :>: R | R :|: R | C Char | I Int deriving (Show)
+ruleId = read <$> P.many1 (P.satisfy isDigit) :: P.ReadP Int
+char = C <$> (P.char '"' *> P.satisfy isAlpha <* P.char '"')
+id = I <$> ruleId
+after = foldl1 (:>:) <$> id `P.sepBy` P.char ' '
+or = (:|:) <$> after <*> (P.string " | " *> after)
+rule = (,) <$> (ruleId <* P.string ": ") <*> ((or <|> after <|> id <|> char) <* P.eof)
+parse parser = fst . head . P.readP_to_S parser
+import Data.List.Split (splitOn)
+[ruls, msgs] <- splitOn "\n\n" <$> readFile "/tmp/input19"
+rules = map (parse rule) . lines $ ruls
+:{
+mkParser rules r = case r of
+  C c -> P.char c
+  I id -> mkParser rules . fromJust $ lookup id rules
+  r1 :>: r2 -> mkParser rules r1 >> mkParser rules r2
+  r1 :|: r2 -> mkParser rules r1 <|> mkParser rules r2
+
+match rules inp = case P.readP_to_S (mkParser rules (I 0) <* P.eof) inp of
+  [(_, "")] -> True
+  _ -> False
+:}
+length $ filter (match rules) $ lines msgs -- part 1
+
+newRules = ["8: 42 | 42 8", "11: 42 31 | 42 11 31"]
+rules' = map (parse rule) newRules ++ rules
+length $ filter (match rules') $ lines msgs -- part 2
 ```
