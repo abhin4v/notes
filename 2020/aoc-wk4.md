@@ -1,5 +1,5 @@
 ---
-date: 2020-12-20
+date: 2020-12-21
 tags: programming aoc haskell
 ---
 
@@ -8,6 +8,7 @@ tags: programming aoc haskell
 I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Haskell REPL (GHCi). You can copy the code and paste it in GHCi to play with it. Here are my solutions for week 4 (Dec 20–25):
 
 - [Day 20](2020/aoc-wk4#day-20)
+- [Day 21](2020/aoc-wk4#day-21)
 
 ## Day 20
 
@@ -122,4 +123,51 @@ matchMonsterSig = (== monsterSig) . zipWith (&&) monsterSig
 :}
 monsterBodySize = length $ filter id monsterSig
 part2 = BA.popCount (tArr imageWithMonster) - monsterBodySize * monsterCount
+```
+
+## Day 21
+
+Problem: <https://adventofcode.com/2020/day/21>
+
+Solution:
+
+```haskell
+import qualified Text.ParserCombinators.ReadP as P
+import Data.Char (isAlpha)
+import qualified Data.Map.Strict as Map
+import Data.List (intersect, nub)
+data Food = Food { fIngs :: [String], fAlrs :: [String] } deriving (Show)
+word = P.many1 (P.satisfy isAlpha)
+:{
+foodP = Food
+  <$> (word `P.sepBy` P.char ' ')
+  <*> (P.string " (contains "
+       *> (word `P.sepBy` P.string ", ")
+       <* P.char ')' <* P.eof)
+:}
+parse = fst . head . P.readP_to_S foodP
+foods <- map parse . lines <$> readFile "/tmp/input21"
+:{
+alrToIngsMap = foldl
+  (\m (Food ings alrs) ->
+      foldl (\m' alr -> Map.insertWith intersect alr ings m') m alrs)
+  Map.empty foods
+:}
+ingsWithAlrs = nub $ concat $ Map.elems alrToIngsMap
+length $ filter (`notElem` ingsWithAlrs) $ concat $ map fIngs foods -- part 1
+
+import Data.List (sortBy, intercalate, (\\))
+import Data.Ord (comparing)
+:{
+prune possibilities =
+  if all (== 1) . map length $ Map.elems possibilities
+  then Map.map head possibilities
+  else let fixedPossibilities =
+             concat $ Map.elems $ Map.filter ((== 1) . length) possibilities
+           prunedPossibilities = flip Map.map possibilities $ \ings ->
+             if length ings == 1 then ings else ings \\ fixedPossibilities
+       in prune prunedPossibilities
+:}
+-- part 2
+intercalate "," . map snd . sortBy (comparing fst) . Map.assocs $ prune alrToIngsMap
 ```
