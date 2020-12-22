@@ -1,5 +1,5 @@
 ---
-date: 2020-12-21
+date: 2020-12-22
 tags: programming aoc haskell
 ---
 
@@ -9,6 +9,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 
 - [Day 20](2020/aoc-wk4#day-20)
 - [Day 21](2020/aoc-wk4#day-21)
+- [Day 22](2020/aoc-wk4#day-22)
 
 ## Day 20
 
@@ -170,4 +171,45 @@ prune possibilities =
 :}
 -- part 2
 intercalate "," . map snd . sortBy (comparing fst) . Map.assocs $ prune alrToIngsMap
+```
+
+## Day 22
+
+Problem: <https://adventofcode.com/2020/day/22>
+
+Solution:
+
+```haskell
+:{
+playCombat [] p2 = p2
+playCombat p1 [] = p1
+playCombat (x:xs) (y:ys) = if x > y
+  then playCombat (xs ++ [x,y]) ys
+  else playCombat xs (ys ++ [y,x])
+:}
+import Data.List.Split (splitOn)
+:{
+[player1, player2] <- map (map read . tail . lines) . splitOn "\n\n"
+  <$> readFile "/tmp/input22" :: IO [[Int]]
+:}
+cards = playCombat player1 player2
+sum $ zipWith (*) (reverse cards) [1..] -- part 1
+
+import qualified Data.Set as Set
+:{
+playRecCombat _ [] p2 = Right p2
+playRecCombat _ p1 [] = Left p1
+playRecCombat seen p1@(x:xs) p2@(y:ys)
+  | Set.member (p1, p2) seen = Left p1
+  | x <= length xs && y <= length ys =
+      case playRecCombat Set.empty (take x xs) (take y ys) of
+        Left _ -> playRecCombat seen' (xs ++ [x,y]) ys
+        Right _ -> playRecCombat seen' xs (ys ++ [y,x])
+  | x > y = playRecCombat seen' (xs ++ [x,y]) ys
+  | otherwise = playRecCombat seen' xs (ys ++ [y,x])
+  where
+    seen' = Set.insert (p1, p2) seen
+:}
+cards = either id id $ playRecCombat Set.empty player1 player2
+sum $ zipWith (*) (reverse cards) [1..] -- part 2
 ```
