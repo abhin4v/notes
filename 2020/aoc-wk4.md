@@ -1,5 +1,5 @@
 ---
-date: 2020-12-22
+date: 2020-12-24
 tags: programming aoc haskell
 ---
 
@@ -10,6 +10,8 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 20](2020/aoc-wk4#day-20)
 - [Day 21](2020/aoc-wk4#day-21)
 - [Day 22](2020/aoc-wk4#day-22)
+- [Day 23](2020/aoc-wk4#day-23)
+- [Day 24](2020/aoc-wk4#day-24)
 
 ## Day 20
 
@@ -212,4 +214,132 @@ playRecCombat seen p1@(x:xs) p2@(y:ys)
 :}
 cards = either id id $ playRecCombat Set.empty player1 player2
 sum $ zipWith (*) (reverse cards) [1..] -- part 2
+```
+
+## Day 23
+
+Problem: <https://adventofcode.com/2020/day/23>
+
+Solution:
+
+```haskell
+import Data.List (sortOn)
+:{
+dest picks left@(current:rest) = head
+  . filter (`notElem` picks)
+  . tail
+  . dropWhile (> current)
+  . cycle
+  $ sortOn negate left
+play (x:xs) = let
+    (picks, left) = (take 3 xs, x:drop 3 xs)
+    d = dest picks left
+    (a,b) = span (/= d) left
+  in tail a ++ [d] ++ picks ++ tail b ++ if not (null a) then [head a] else []
+:}
+input = [3,2,6,5,1,9,4,7,8]
+:{
+part1 = take (length input - 1)
+  . drop 1
+  . dropWhile (/= 1)
+  . cycle
+  $ iterate play input !! 100
+:}
+
+input = [3,2,6,5,1,9,4,7,8] ++ [10..1000000] :: [Int]
+import qualified Data.Vector.Primitive.Mutable as MV
+import Control.Monad (forM_)
+cups <- MV.new 1000001 :: IO (MV.IOVector Int)
+forM_ (zip input $ tail input ++ [head input]) $ uncurry (MV.unsafeWrite cups)
+
+import Data.List ((\\))
+:{
+dest :: Int -> [Int] -> Int
+dest current picks
+  | d < min' = max'
+  | d `notElem` picks = d
+  | otherwise = dest d picks
+  where
+    d = current - 1
+    max' = maximum $ [999997,999998,999999,1000000] \\ picks
+    min' = minimum $ [1,2,3,4] \\ picks
+
+play :: Int -> Int -> IO Int
+play 0 _ = do
+  a <- MV.unsafeRead cups 1
+  b <- MV.unsafeRead cups a
+  return $ a * b
+play n current = do
+  a <- MV.unsafeRead cups current
+  b <- MV.unsafeRead cups a
+  c <- MV.unsafeRead cups b
+  let d = dest current [a,b,c]
+  dnext <- MV.unsafeRead cups d
+  cnext <- MV.unsafeRead cups c
+  MV.unsafeWrite cups d a
+  MV.unsafeWrite cups c dnext
+  MV.unsafeWrite cups current cnext
+  play (n - 1) cnext
+:}
+play 10000000 3 -- part 2
+```
+
+## Day 24
+
+Problem: <https://adventofcode.com/2020/day/24>
+
+Solution:
+
+```haskell
+:set -XLambdaCase
+import qualified Text.ParserCombinators.ReadP as P
+data Dir = E | W | NW | NE | SW | SE deriving Show
+import Data.Functor (($>))
+import Control.Applicative ((<|>))
+:{
+parser =  P.string "nw" $> NW
+      <|> P.string "sw" $> SW
+      <|> P.string "ne" $> NE
+      <|> P.string "se" $> SE
+      <|> P.char 'e' $> E
+      <|> P.char 'w' $> W
+:}
+parse = fst . head . P.readP_to_S (P.many1 parser <* P.eof)
+tileDirs <- map parse . lines <$> readFile "/tmp/input24"
+:{
+interpret :: (Int, Int, Int) -> Dir -> (Int, Int, Int)
+interpret (x, y, z) = \case
+  E -> (x+1,y+1,z)
+  W -> (x-1,y-1,z)
+  NE -> (x,y+1,z+1)
+  SW -> (x,y-1,z-1)
+  NW -> (x-1,y,z+1)
+  SE -> (x+1,y,z-1)
+:}
+tileCos = map (foldl interpret (0,0,0)) tileDirs
+import qualified Data.Map.Strict as M
+flipCounts = foldl (\m c -> M.insertWith (+) c 1 m) M.empty tileCos
+length $ M.filter odd $ flipCounts -- part 1
+
+data Color = White | Black deriving (Show, Eq, Ord)
+start = M.map (\x -> if odd x then Black else White) flipCounts
+import Data.MemoTrie (memo)
+neighbours = memo $ \point -> map (interpret point) [E, W, NW, NE, SW, SE]
+import Data.Maybe (fromMaybe)
+tileColor tile = fromMaybe White . M.lookup tile
+import qualified Data.Set as S
+:{
+day tiles = M.fromSet step
+  $ foldl (\s -> S.union s . S.fromList . neighbours) (M.keysSet tiles)
+  $ M.keys tiles
+  where
+    step tile = let
+        neighbourColors = map (flip tileColor tiles) $ neighbours tile
+        blackNeighbourCount = length $ filter (== Black) neighbourColors
+      in case tileColor tile tiles of
+           White | blackNeighbourCount == 2 -> Black
+           Black | blackNeighbourCount == 0 || blackNeighbourCount > 2 -> White
+           color -> color
+:}
+length $ M.filter (== Black) $ iterate day start !! 100 -- part 2
 ```
