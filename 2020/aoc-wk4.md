@@ -1,5 +1,5 @@
 ---
-date: 2020-12-24
+date: 2020-12-25
 tags: programming aoc haskell
 ---
 
@@ -12,6 +12,7 @@ I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Has
 - [Day 22](2020/aoc-wk4#day-22)
 - [Day 23](2020/aoc-wk4#day-23)
 - [Day 24](2020/aoc-wk4#day-24)
+- [Day 25](2020/aoc-wk4#day-25)
 
 ## Day 20
 
@@ -323,8 +324,7 @@ length $ M.filter odd $ flipCounts -- part 1
 
 data Color = White | Black deriving (Show, Eq, Ord)
 start = M.map (\x -> if odd x then Black else White) flipCounts
-import Data.MemoTrie (memo)
-neighbours = memo $ \point -> map (interpret point) [E, W, NW, NE, SW, SE]
+neighbours point = map (interpret point) [E, W, NW, NE, SW, SE]
 import Data.Maybe (fromMaybe)
 tileColor tile = fromMaybe White . M.lookup tile
 import qualified Data.Set as S
@@ -334,7 +334,7 @@ day tiles = M.fromSet step
   $ M.keys tiles
   where
     step tile = let
-        neighbourColors = map (flip tileColor tiles) $ neighbours tile
+        neighbourColors = map (`tileColor` tiles) $ neighbours tile
         blackNeighbourCount = length $ filter (== Black) neighbourColors
       in case tileColor tile tiles of
            White | blackNeighbourCount == 2 -> Black
@@ -343,3 +343,20 @@ day tiles = M.fromSet step
 :}
 length $ M.filter (== Black) $ iterate day start !! 100 -- part 2
 ```
+
+## Day 25
+
+Problem: <https://adventofcode.com/2020/day/25>
+
+Solution:
+
+```haskell
+:set -XLambdaCase
+:set -XStrict
+transform s v = \case { 0 -> v; n -> transform s ((v * s) `mod` 20201227) $ n - 1 }
+findLoopSize t n v = if v == t then n else findLoopSize t (n+1) $ v * 7 `mod` 20201227
+input = [11562782, 18108497]
+transform (input !! 1) 1 $ findLoopSize (input !! 0) 0 1 -- part 1
+```
+
+And, that's a wrap!
