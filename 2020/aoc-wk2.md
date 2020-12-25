@@ -174,7 +174,7 @@ part2 = head
 :}
 ```
 
-## Day 11
+## Day 10
 
 Problem: <https://adventofcode.com/2020/day/10>
 
