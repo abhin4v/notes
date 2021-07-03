@@ -14,6 +14,7 @@ Short notes about things I come across and ideas I run into.
 - [health](./tags/health)
 - [highlights](./tags/highlights)
 - [java](./tags/java)
+- [monthnotes](./tags/monthnotes)
 - [observations](./tags/observations)
 - [personal](./tags/personal)
 - [photo](./tags/photo)
@@ -25,6 +26,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2021-07-03* [2021/monthnotes-06](./2021/monthnotes-06)
 - *2021-06-18* [2021/the-psych-of-money](./2021/the-psych-of-money)
 - *2021-01-26* [2021/on-writing-well](./2021/on-writing-well)
 - *2020-12-26* [2020/aoc-learnings](./2020/aoc-learnings)
