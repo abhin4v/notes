@@ -1,6 +1,6 @@
 ---
 date: 2021-07-03
-tags: monthnotes personal
+tags: notes personal
 ---
 
 # June 2021 in Retrospect

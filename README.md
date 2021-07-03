@@ -14,7 +14,7 @@ Short notes about things I come across and ideas I run into.
 - [health](./tags/health)
 - [highlights](./tags/highlights)
 - [java](./tags/java)
-- [monthnotes](./tags/monthnotes)
+- [notes](./tags/notes)
 - [observations](./tags/observations)
 - [personal](./tags/personal)
 - [photo](./tags/photo)
@@ -22,7 +22,6 @@ Short notes about things I come across and ideas I run into.
 - [review](./tags/review)
 - [travel](./tags/travel)
 - [video](./tags/video)
-- [weeknotes](./tags/weeknotes)
 
 ## Notes
 

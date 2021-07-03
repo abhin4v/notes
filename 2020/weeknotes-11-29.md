@@ -1,6 +1,6 @@
 ---
 date: 2020-11-29
-tags: weeknotes personal
+tags: notes personal
 ---
 
 # Notes for the week
