@@ -25,6 +25,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2021-08-17* [2021/mood-analysis](./2021/mood-analysis)
 - *2021-07-03* [2021/monthnotes-06](./2021/monthnotes-06)
 - *2021-06-18* [2021/the-psych-of-money](./2021/the-psych-of-money)
 - *2021-01-26* [2021/on-writing-well](./2021/on-writing-well)
