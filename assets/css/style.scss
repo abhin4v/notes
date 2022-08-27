@@ -160,6 +160,12 @@ body.remarkdown {
       }
     }
   }
+
+  figure {
+    figcaption {
+      text-align: center;
+    }
+  }
 }
 
 .highlight {

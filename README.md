@@ -14,17 +14,20 @@ Short notes about things I come across and ideas I run into.
 - [health](./tags/health)
 - [highlights](./tags/highlights)
 - [java](./tags/java)
+- [nix](./tags/nix)
 - [notes](./tags/notes)
 - [observations](./tags/observations)
 - [personal](./tags/personal)
 - [photo](./tags/photo)
 - [programming](./tags/programming)
 - [review](./tags/review)
+- [self-hosting](./tags/self-hosting)
 - [travel](./tags/travel)
 - [video](./tags/video)
 
 ## Notes
 
+- *2022-08-27* [2022/DO-nixos-image](./2022/DO-nixos-image)
 - *2022-07-02* [2022/5k-training](./2022/5k-training)
 - *2021-08-17* [2021/mood-analysis](./2021/mood-analysis)
 - *2021-07-03* [2021/monthnotes-06](./2021/monthnotes-06)
