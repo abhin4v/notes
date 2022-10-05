@@ -281,14 +281,14 @@ validIndex (x, y) = and [x >= 0, y >= 0, x < inputRowCount, y < inputColCount]
 
 -- next, rules for finding neighbours and occupying seats for part 1
 :{
-neightbours1 grid (x, y) = [
+neighbours1 grid (x, y) = [
     grid `S.index` (x + i) `S.index` (y + j)
   | i <- [-1, 0, 1], j <- [-1, 0, 1]
   , validIndex (x + i, y + j)
   , (x + i, y + j) /= (x, y)
   ]
 rule1 univ = let
-    ns = neightbours1 (fromUniv univ) $ uPos univ
+    ns = neighbours1 (fromUniv univ) $ uPos univ
     f = extract univ
     occupied = [() | n <- ns, n == Occupied]
   in case f of

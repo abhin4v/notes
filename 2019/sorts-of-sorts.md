@@ -6,7 +6,7 @@ tags: programming java algorithm
 # Sorts of Sorts
 
 I wrote some of the popular sorting algorithms in Java for fun and practice:
-- Seletion sort
+- Selection sort
 - Insertion sort
 - Merge sort
 - Quick sort
