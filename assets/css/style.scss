@@ -166,6 +166,10 @@ body.remarkdown {
       text-align: center;
     }
   }
+  div.highlighter-rouge + center em {
+    position: relative;
+    top: -1em;
+  }
 }
 
 .highlight {
