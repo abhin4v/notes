@@ -1,4 +1,4 @@
-# aoc\n
+# aoc
 - *2020-12-26* [2020/aoc-learnings](./2020/aoc-learnings)
 - *2020-12-25* [2020/aoc-wk4](./2020/aoc-wk4)
 - *2020-12-19* [2020/aoc-wk3](./2020/aoc-wk3)

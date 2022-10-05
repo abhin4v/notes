@@ -1,4 +1,4 @@
-# general\n
+# general
 - *2020-08-07* [2020/rain-by-lake](./2020/rain-by-lake)
 - *2020-08-01* [2020/desert-orchard](./2020/desert-orchard)
 - *2019-09-13* [2019/fight-of-lights](./2019/fight-of-lights)

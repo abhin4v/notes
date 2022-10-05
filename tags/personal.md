@@ -1,4 +1,4 @@
-# personal\n
+# personal
 - *2022-07-02* [2022/5k-training](./2022/5k-training)
 - *2021-08-17* [2021/mood-analysis](./2021/mood-analysis)
 - *2021-07-03* [2021/monthnotes-06](./2021/monthnotes-06)

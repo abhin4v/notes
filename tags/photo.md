@@ -1,4 +1,4 @@
-# photo\n
+# photo
 - *2020-08-07* [2020/rain-by-lake](./2020/rain-by-lake)
 - *2020-08-01* [2020/desert-orchard](./2020/desert-orchard)
 - *2020-01-31* [2020/high](./2020/high)
