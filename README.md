@@ -27,6 +27,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2022-10-07* [2022/software-i-use](./2022/software-i-use)
 - *2022-10-05* [2022/just-nix-podman-combo](./2022/just-nix-podman-combo)
 - *2022-08-31* [2022/fail2ban-nginx-cloudflare-nixos](./2022/fail2ban-nginx-cloudflare-nixos)
 - *2022-08-29* [2022/ghost-on-nixos](./2022/ghost-on-nixos)
