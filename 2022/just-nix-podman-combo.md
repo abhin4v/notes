@@ -192,13 +192,12 @@ And everything will _Just Work_.
 The case described in this post is a rather trivial and contrived example, but this pattern has
 served me well in real-world use cases.
 
-
 [Clang]: https://clang.llvm.org/
 [Just]: https://just.systems/
 [GCC]: https://gcc.gnu.org/
 [Homebrew]: https://brew.sh/
 [Nix]: https://nixos.org/
-[a lot of things]: https://www.haskellforall.com/2022/08/stop-calling-everything-nix.html
+[a lot of things]: https://web.archive.org/web/3/https://www.haskellforall.com/2022/08/stop-calling-everything-nix.html
 [TinyCC]: https://repo.or.cz/tinycc.git
 [Docker]: https://www.docker.com/
 [Podman]: https://podman.io/

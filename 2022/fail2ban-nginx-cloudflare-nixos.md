@@ -8,7 +8,7 @@ tags: nix self-hosting
 [Fail2Ban](https://www.fail2ban.org) is a service to scan the log files of various services on servers
 to find malicious IPs (by matching log lines to predefined regular expressions), and ban such IPs
 using various firewalls like [iptables](https://www.netfilter.org/projects/iptables/index.html).
-One of its use is to ban malicious IPs that issue bad requests on [NGINX](https://nginx.org/) servers. 
+One of its use is to ban malicious IPs that issue bad requests on [NGINX](https://nginx.org/) servers.
 
 However, in my case, the NGINX server is fronted by [Cloudflare](https://www.cloudflare.com) (CF)
 for resource caching etc. This means that the IPs that the NGINX server sees are that of the
@@ -28,7 +28,7 @@ configure NGINX.
 let
   cloudflareIPs = builtins.fetchurl "https://www.cloudflare.com/ips-v4";
   setRealIpFromConfig =
-    lib.concatMapStrings (ip: "set_real_ip_from ${ip};\n") 
+    lib.concatMapStrings (ip: "set_real_ip_from ${ip};\n")
       (lib.strings.splitString "\n" (builtins.readFile "${cloudflareIPs}"));
 in {
   services.nginx = {
@@ -98,9 +98,9 @@ in {
 
 The code above shows an example jail called `nginx-noagent` that bans all IPs requesting without an
 [HTTP user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent). We use
-the `cloudflare` action (with CF account's email and API key) to ban in the CF WAF, and 
+the `cloudflare` action (with CF account's email and API key) to ban in the CF WAF, and
 the `iptables-multiport` action to ban in the server iptables. The `curl` package is needed to make
 the CF API calls.
 
 That's it! You can add more jails that use different regexes to catch different malicious actions,
-and ban the bad IPs. Safe secure and serve (HTTP requests).
+and ban the bad IPs. Stay secure and serve (HTTP requests).
