@@ -28,7 +28,7 @@ clang -o hello-clang hello.c
 ```
 
 Well and good. But you don't want to be typing all that every time you need to compile (your unusual
-circumstances compell you to compile the file again and again). So you put is in a `justfile`:
+circumstances compell you to compile the file again and again). So you put it in a `justfile`:
 
 ```
 build-clang:
@@ -47,7 +47,7 @@ Just when you think you troubles are over, you remember that you need to compile
 it and its dependencies. You can [Homebrew] that stuff, but you know better.
 
 Enter [Nix]. Nix is [a lot of things], but for the purpose of this post, it is a way to easily create
-reproducible development environments. So you quickly put together the `shell.nix` file that
+reproducible development environments. So after installing Nix, you quickly put together the `shell.nix` file that
 gathers your dependencies, and makes them present your shell's `$PATH`:
 
 ```nix
@@ -86,7 +86,7 @@ just build-gcc
 ```
 
 The `_run-in-nix-shell` Just command takes care of automatically starting the `nix-shell` if
-required. And `nix-shell` downloads GCC and its dependencies for you and sets them up correctly,
+required. `nix-shell` downloads GCC and its dependencies for you, and sets them up correctly,
 so that you don't have to care about a thing in the world.
 
 Except one thing: now you also need to compile `hello.c` with [TinyCC], and for some bizzare reasons,
@@ -101,20 +101,24 @@ First you alter `shell.nix` to set up Podman et al., and TinyCC:
 with (import <nixpkgs> { });
 mkShell {
   buildInputs =
-    [ just gcc ] # packages available on both linux and macos
-    ++ (lib.optionals stdenv.isLinux [ tinycc ]) # packages available only on linux
-    ++ (lib.optionals stdenv.isDarwin [ podman qemu ]); # macos tooling to run linux packages
+    # packages available on both linux and macos
+    [ just gcc ]
+    # packages available only on linux
+    ++ (lib.optionals stdenv.isLinux [ tinycc ])
+    # macos tooling to run linux packages
+    ++ (lib.optionals stdenv.isDarwin [ podman qemu ]);
 }
 ```
 <center><em>shell.nix</em></center>
 
-Then you write Just commands to create and operate a Podman container:
+Then you write the Just commands to create and operate a Podman container:
 
 ```
 container_name := "demo"
 
 _create-vm:
-    podman machine init --cpus 12 --memory 8192 --disk-size 50 --volume $HOME:$HOME || true
+    podman machine init --cpus 12 --memory 8192 --disk-size 50 \
+      --volume $HOME:$HOME || true
 
 _start-vm: _create-vm
     podman machine start || true
@@ -135,11 +139,12 @@ _stop: && _stop-vm
 {% endraw %}```
 <center><em>justfile</em></center>
 
-And helper commands to run Just commands in the Podman container:
+And the helper commands to run Just commands in the Podman container:
 
 ```{% raw %}
 _podman-exec cmd *args: _start && _stop
-    podman exec -it {{ container_name }} nix-shell --command "just {{ cmd }} {{ args }}"
+    podman exec -it {{ container_name }} nix-shell \
+      --command "just {{ cmd }} {{ args }}"
 
 _run-in-podman cmd *args:
     #!/usr/bin/env -S sh -eu
@@ -152,7 +157,7 @@ _run-in-podman cmd *args:
 ```
 <center><em>justfile</em></center>
 
-And commands to run TinyCC on `hello.c`:
+And finally, the commands to run TinyCC on `hello.c`:
 
 ```
 __build-tcc:
@@ -178,7 +183,7 @@ up your laptop, move to the living room, and open it again to browse [Reddit]. A
 
 ## Bonus tip
 
-This `justfile` will run fine on a Linux machine as well, except the `build-clang` command. Also, if
+This `justfile` runs fine on a Linux machine as well, except the `build-clang` command. Also, if
 you have Just installed at the OS level, you can run Just commands from other directories as well, like this:
 
 ```
@@ -189,8 +194,8 @@ And everything will _Just Work_.
 
 ## Coda
 
-The case described in this post is a rather trivial and contrived example, but this pattern has
-served me well in real-world use cases.
+The use-case described in this post is a rather trivial and contrived example, but this pattern has
+served me well in real-world use-cases.
 
 [Clang]: https://clang.llvm.org/
 [Just]: https://just.systems/
