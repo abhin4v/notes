@@ -1,4 +1,5 @@
 # programming
+- *2022-11-07* [2022/patching-nixpkgs](./2022/patching-nixpkgs)
 - *2022-10-05* [2022/just-nix-podman-combo](./2022/just-nix-podman-combo)
 - *2020-12-26* [2020/aoc-learnings](./2020/aoc-learnings)
 - *2020-12-25* [2020/aoc-wk4](./2020/aoc-wk4)
