@@ -61,7 +61,23 @@
     </ul>
     {% endif %}
     {% if page.date %}
-      <a style="float: right" href="{{ site.github.repository_url }}/edit/master/{{ page.path }}">Edit</a>
+    <span style="float: right">
+      <span id="like-count" title="Likes"></span>
+      <span id="repost-count" title="Reposts"></span>
+    </span>
+    <script type="text/javascript">
+    fetch("https://webmention.io/api/count?target=" + location)
+        .then(response => response.json())
+        .then(response => {
+          let likes = response.type.like;
+          if (likes !== undefined)
+            document.querySelector("#like-count").innerHTML = likes + "♥️";
+
+          let reposts = response.type.repost;
+          if (reposts !== undefined)
+            document.querySelector("#repost-count").innerHTML = reposts + "🔁";
+        });
+    </script>
     {% endif %}
     </section>
     <main>
