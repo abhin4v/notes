@@ -181,6 +181,14 @@ body.remarkdown {
   }
 }
 
+.footnotes {
+  border-top: 1px dashed var(--input-border-color);
+}
+
+.footnotes li[role="doc-endnote"]:target {
+  background-color: var(--target-color);
+}
+
 :root {
   color-scheme: light dark; /* both supported */
 }
@@ -200,6 +208,7 @@ body.remarkdown {
     --input-color: #333;
     --input-bg-color: #fdfdfd;
     --input-border-color: #777;
+    --target-color: #E6E6FA;
   }
 
   .highlight {
@@ -443,6 +452,7 @@ body.remarkdown {
     --input-color: #cccccc;
     --input-bg-color: #0f0f0f;
     --input-border-color: #888888;
+    --target-color: #00008b;
   }
 
   body img {
