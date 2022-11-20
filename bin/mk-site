@@ -12,7 +12,7 @@ echo "Adding tags to README"
 echo "# $NAME\n" > README.md
 echo "$DESC\n" >> README.md
 echo "## Tags\n" >> README.md
-echo "$TAGS" | awk '{print "- ["$1"](./tags/"$1")"}' >> README.md
+echo "$TAGS" | awk '{print "- ["$1"](/tags/"$1")"}' >> README.md
 
 # add notes list to README
 echo "Adding notes list to README"

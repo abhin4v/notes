@@ -16,13 +16,11 @@
 
   <title>{% if page.path != 'README.md' %}{{ page.title }} | {% endif %}{{ site.name }}</title>
 
-  <base href="{{ site.github.url }}/">
-
   <link rel="shortcut icon" type="image/x-icon" href="//abhinavsarkar.net/images/favicon.ico">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="feed.atom">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.atom">
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://unpkg.com/remarkdown.css/dist/remarkdown.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <!-- Matomo -->
   <script type="text/javascript">
@@ -44,7 +42,7 @@
 <body class="remarkdown h1-underline h2-underline table-marker hr-hyphen">
   <div class="container">
     <header>
-      <span><a href="./">{{ site.name }}</a></span>
+      <span><a href="/">{{ site.name }}</a></span>
       <form action="{{ site.github.repository_url }}/search" method="get" style="float: right">
         <input type="search" name="q" placeholder="Search">
         <input type="hidden" name="l" value="Markdown" style="display:none">
@@ -56,7 +54,7 @@
     {% assign tags = page.tags | split:' ' %}
     <ul class="tags">
       {% for tag in tags %}
-      <li><a href="./tags/{{ tag }}">{{ tag }}</a></li>
+      <li><a href="/tags/{{ tag }}">{{ tag }}</a></li>
       {% endfor %}
     </ul>
     {% endif %}
@@ -90,4 +88,3 @@
   </div>
 </body>
 </html>
-

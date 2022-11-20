@@ -7,11 +7,11 @@ tags: programming aoc haskell
 
 I'm solving the [Advent of Code 2020](https://adventofcode.com/2020/) in the Haskell REPL (GHCi). You can copy the code and paste it in GHCi to play with it. Here are my solutions for week 1 (Dec 1–5):
 
-- [Day 1](2020/aoc-wk1#day-1)
-- [Day 2](2020/aoc-wk1#day-2)
-- [Day 3](2020/aoc-wk1#day-3)
-- [Day 4](2020/aoc-wk1#day-4)
-- [Day 5](2020/aoc-wk1#day-5)
+- [Day 1](#day-1)
+- [Day 2](#day-2)
+- [Day 3](#day-3)
+- [Day 4](#day-4)
+- [Day 5](#day-5)
 ## Day 1
 
 Problem: <https://adventofcode.com/2020/day/1>
