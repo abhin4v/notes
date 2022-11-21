@@ -1,6 +1,6 @@
 ---
 date: 2022-11-20
-tags: nix self-hosting
+tags: nix self-hosting programming
 ---
 
 # Self-hosting GoToSocial on NixOS

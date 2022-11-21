@@ -1,6 +1,6 @@
 ---
 date: 2022-08-31
-tags: nix self-hosting
+tags: nix self-hosting programming
 ---
 
 # Setting up Fail2Ban with Nginx and Cloudflare on NixOS

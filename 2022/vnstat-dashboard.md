@@ -1,6 +1,6 @@
 ---
 date: 2022-11-16
-tags: nix self-hosting
+tags: nix self-hosting programming
 ---
 
 # Monitoring VPS Network Usage with vnStat and NixOS

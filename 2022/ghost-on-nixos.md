@@ -1,6 +1,6 @@
 ---
 date: 2022-08-29
-tags: nix self-hosting
+tags: nix self-hosting programming
 ---
 
 # Hosting a Ghost blog on NixOS

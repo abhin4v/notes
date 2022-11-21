@@ -1,6 +1,6 @@
 ---
 date: 2022-08-27
-tags: nix self-hosting
+tags: nix self-hosting programming
 ---
 
 # Creating NixOS custom image for Digital Ocean VPS
