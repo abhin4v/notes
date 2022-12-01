@@ -1,4 +1,5 @@
 # programming
+- *2022-12-01* [2022/astar](/2022/astar)
 - *2022-11-20* [2022/gotosocial-on-nixos](/2022/gotosocial-on-nixos)
 - *2022-11-16* [2022/vnstat-dashboard](/2022/vnstat-dashboard)
 - *2022-11-07* [2022/patching-nixpkgs](/2022/patching-nixpkgs)
