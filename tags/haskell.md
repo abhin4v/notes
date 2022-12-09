@@ -1,4 +1,5 @@
 # haskell
+- *2022-12-09* [2022/aoc-7](/2022/aoc-7)
 - *2022-12-02* [2022/type-level-rps](/2022/type-level-rps)
 - *2022-12-01* [2022/astar](/2022/astar)
 - *2020-12-26* [2020/aoc-learnings](/2020/aoc-learnings)

@@ -1,4 +1,5 @@
 # programming
+- *2022-12-09* [2022/aoc-7](/2022/aoc-7)
 - *2022-12-02* [2022/type-level-rps](/2022/type-level-rps)
 - *2022-12-01* [2022/astar](/2022/astar)
 - *2022-11-20* [2022/gotosocial-on-nixos](/2022/gotosocial-on-nixos)
