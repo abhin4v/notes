@@ -1,6 +1,6 @@
 ---
 date: 2022-11-20
-tags: nix self-hosting programming
+tags: nix self-hosting programming fediverse
 ---
 
 # Self-hosting GoToSocial on NixOS

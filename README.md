@@ -10,6 +10,7 @@ Short notes about things I come across and ideas I run into.
 - [architecture](/tags/architecture)
 - [book](/tags/book)
 - [distributed-systems](/tags/distributed-systems)
+- [fediverse](/tags/fediverse)
 - [general](/tags/general)
 - [haskell](/tags/haskell)
 - [health](/tags/health)
@@ -28,6 +29,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2022-12-15* [2022/fake-relay](/2022/fake-relay)
 - *2022-12-09* [2022/aoc-7](/2022/aoc-7)
 - *2022-12-02* [2022/type-level-rps](/2022/type-level-rps)
 - *2022-12-01* [2022/astar](/2022/astar)
