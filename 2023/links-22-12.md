@@ -1,11 +1,11 @@
 ---
 date: 2023-01-03
-tags: links notes
+tags: links
 ---
 
-# Interesting Blog Post Links for December 2022
+# Interesting Links for December 2022
 
-Here are some interesting blog posts I read on the internet in December 2022:
+Here are some interesting things I read on the internet in December 2022:
 
 ## Haskell
 
