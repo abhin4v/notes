@@ -3,3 +3,8 @@ name: Abhinav's Notes
 
 # the description of the notes website
 description: Short notes about things I come across and ideas I run into.
+
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+  collections: false
