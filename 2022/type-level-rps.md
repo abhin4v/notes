@@ -8,7 +8,7 @@ tags: haskell aoc programming
 Let's solve part 1 of today's Advent of Code [challenge](https://adventofcode.com/2022/day/2) "Rock Paper Scissors" in type-level Haskell.
 
 Instead of using term-level programming as we usually do, we make Haskell's type system do the work of
-calculating the solution. So the solution is be known right after we compile the program, and we do not even need to run the compiled program.
+calculating the solution. So the solution is known right after we compile the program, and we do not even need to run the compiled program.
 
 Here goes the code:
 
