@@ -30,6 +30,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2023-03-05* [2023/mastodon-context](/2023/mastodon-context)
 - *2023-03-01* [2023/links-23-02](/2023/links-23-02)
 - *2023-02-01* [2023/links-23-01](/2023/links-23-01)
 - *2023-01-03* [2023/links-22-12](/2023/links-22-12)
