@@ -36,7 +36,7 @@ def getInstanceTags(instanceTagsFile):
       return json.load(f)
 
 def getEndpointUrls(instanceTags):
-  return ('https://{}/tags/{}.json'.format(instance, tag)
+  return ('https://{}/api/v1/timelines/tag/{}'.format(instance, tag)
           for instance in instanceTags for tag in instanceTags[instance])
 
 def getSeenUrls(seenUrlsFile):
@@ -97,8 +97,10 @@ def getStatusUrls(endpointUrl):
         return []
 
       data = r.json()
-      return (url for url in data['orderedItems']
-              if url.startswith('http') and 'statuses' in url)
+      for status in data:
+        url = status["uri"]
+        if url.startswith('http') and 'statuses' in url:
+          yield url
   except Exception as e:
     print('Error: {}'.format(e), flush=True)
     return []
