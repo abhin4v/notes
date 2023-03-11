@@ -64,15 +64,22 @@
       <span id="repost-count" title="Reposts"></span>
     </span>
     <script type="text/javascript">
-    fetch("https://webmention.io/api/count?target=" + location)
-        .then(response => response.json())
-        .then(response => {
-          let likes = response.type.like;
-          if (likes !== undefined)
+      function undefinedToZero(n) {
+        return n == undefined ? 0 : n;
+      }
+      
+      Promise.all(
+        [fetch("https://webmention.io/api/count?target=" + location),
+         fetch("https://webmention.io/api/count?target=" + location + "?mtm_campaign=mastodon")])
+        .then(responses => Promise.all([responses[0].json(), responses[1].json()]))
+        .then(responses => {
+          let likes = undefinedToZero(responses[0].type.like) + undefinedToZero(responses[1].type.like);
+          
+          if (likes !== 0)
             document.querySelector("#like-count").innerHTML = likes + "♥️";
 
-          let reposts = response.type.repost;
-          if (reposts !== undefined)
+          let reposts = undefinedToZero(responses[0].type.repost) + undefinedToZero(responses[1].type.repost);
+          if (reposts !== 0)
             document.querySelector("#repost-count").innerHTML = reposts + "🔁";
         });
     </script>
