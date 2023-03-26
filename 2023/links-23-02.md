@@ -24,7 +24,7 @@ Here are some interesting things I read on the internet in February 2023:
 
 ### Design
 
-- [Types of moving to the right](https://elizarov.medium.com/types-are-moving-to-the-right-22c0ef31dd4a)
+- [Types are moving to the right](https://elizarov.medium.com/types-are-moving-to-the-right-22c0ef31dd4a)
 - [What Austral Proves](https://web.archive.org/web/3/https://animaomnium.github.io/what-austral-proves/)
 
 ### Implementation
@@ -58,7 +58,7 @@ Here are some interesting things I read on the internet in February 2023:
 - [And Yet It Understands](https://web.archive.org/web/3/https://borretti.me/article/and-yet-it-understands)
 - [Bing: “I will not harm you unless you harm me first”](https://web.archive.org/web/3/http://simonwillison.net/2023/Feb/15/bing/)
 
-## Misc
+## Miscellaneous
 
 - [Gasoline Car Review](https://web.archive.org/web/3/https://geoff.greer.fm/2023/02/08/gasoline-car-review/)
 - [Meanwhile, Over in Androidtown](https://web.archive.org/web/3/https://daringfireball.net/2023/01/meanwhile_over_in_androidtown)
