@@ -1,4 +1,5 @@
 # personal
+- *2023-04-13* [2023/reading-process](/2023/reading-process)
 - *2022-10-07* [2022/software-i-use](/2022/software-i-use)
 - *2022-07-02* [2022/5k-training](/2022/5k-training)
 - *2021-08-17* [2021/mood-analysis](/2021/mood-analysis)
