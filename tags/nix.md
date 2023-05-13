@@ -1,4 +1,5 @@
 # nix
+- *2023-05-13* [2023/mastodon-backup](/2023/mastodon-backup)
 - *2022-12-20* [2022/patching-mastodon](/2022/patching-mastodon)
 - *2022-11-20* [2022/gotosocial-on-nixos](/2022/gotosocial-on-nixos)
 - *2022-11-16* [2022/vnstat-dashboard](/2022/vnstat-dashboard)

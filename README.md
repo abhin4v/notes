@@ -30,6 +30,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2023-05-13* [2023/mastodon-backup](/2023/mastodon-backup)
 - *2023-05-02* [2023/links-23-04](/2023/links-23-04)
 - *2023-04-27* [2023/sleep-analysis](/2023/sleep-analysis)
 - *2023-04-13* [2023/reading-process](/2023/reading-process)
