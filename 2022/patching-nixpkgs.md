@@ -1,6 +1,6 @@
 ---
 date: 2022-11-07
-tags: nix TIL programming
+tags: nix programming
 ---
 
 # TIL: How to patch Nixpkgs
