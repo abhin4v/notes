@@ -14,6 +14,7 @@ Short notes about things I come across and ideas I run into.
 - [haskell](/tags/haskell)
 - [health](/tags/health)
 - [highlights](/tags/highlights)
+- [indieweb](/tags/indieweb)
 - [java](/tags/java)
 - [links](/tags/links)
 - [nix](/tags/nix)
@@ -29,6 +30,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2023-05-19* [2023/mastodon-comments](/2023/mastodon-comments)
 - *2023-05-18* [2023/bicycling](/2023/bicycling)
 - *2023-05-13* [2023/mastodon-backup](/2023/mastodon-backup)
 - *2023-05-02* [2023/links-23-04](/2023/links-23-04)
