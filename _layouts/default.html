@@ -49,7 +49,7 @@
       </form>
     </header>
     <section style="margin-top: 1em; color: #999;">
-    {% if page.date %}<span class="date">{{ page.date }}</span>{% endif %}
+    {% if page.date %}<time datetime="{{ page.date }}" class="date">{{ page.date | date_to_string }}</time>{% endif %}
     {% if page.tags %}
     {% assign tags = page.tags | split:' ' %}
     <ul class="tags">

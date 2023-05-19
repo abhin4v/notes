@@ -4,7 +4,6 @@ Short notes about things I come across and ideas I run into.
 
 ## Tags
 
-- [TIL](/tags/TIL)
 - [algorithm](/tags/algorithm)
 - [aoc](/tags/aoc)
 - [architecture](/tags/architecture)

@@ -2,8 +2,15 @@
 ---
 
 body.remarkdown {
-  font-family: Inconsolata, Menlo, Monaco, "DejaVu Sans Mono", Consolas, monospace;
-  font-size: 1em;
+  font-family: ui-monospace,
+     SFMono-Regular, "SF Mono",
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  font-size: 1rem;
+  letter-spacing: -0.01rem;
   background: var(--body-bg-color);
   color: var(--text-color);
   min-width: 380px;
@@ -204,7 +211,7 @@ body.remarkdown {
     --code-color: #999;
     --tag-color: #fdfdfd;
     --tag-bg-color: #c6f;
-    --time-color: #aaa;
+    --time-color: #555555;
     --input-color: #333;
     --input-bg-color: #fdfdfd;
     --input-border-color: #777;
@@ -448,7 +455,7 @@ body.remarkdown {
     --code-color: #a6a6a6;
     --tag-color: #fdfdfd;
     --tag-bg-color: #8f00d6;
-    --time-color: #555555;
+    --time-color: #aaaaaa;
     --input-color: #cccccc;
     --input-bg-color: #0f0f0f;
     --input-border-color: #888888;
