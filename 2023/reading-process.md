@@ -26,4 +26,4 @@ This streamlined process has helped me read more articles than before, and I've 
 
 I post the most interesting of the articles I read as [collections of links](/tags/links) every month. You can download the OPML file of the feeds I subscribe to (at the time of writing this note) from [here](/files/reading-process/feeds.opml).
 
-You can like, share, or comment on this note on [Mastodon](https://fantastic.earth/@abnv/110190621043044862).
+You can like, share, or comment on this note on [Mastodon](https://fantastic.earth/@abnv/110190621043044862){:class="mastodon-link"}.

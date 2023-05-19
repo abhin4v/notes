@@ -67,14 +67,14 @@
       function undefinedToZero(n) {
         return n == undefined ? 0 : n;
       }
-      
+
       Promise.all(
         [fetch("https://webmention.io/api/count?target=" + location),
          fetch("https://webmention.io/api/count?target=" + location + "?mtm_campaign=mastodon")])
         .then(responses => Promise.all([responses[0].json(), responses[1].json()]))
         .then(responses => {
           let likes = undefinedToZero(responses[0].type.like) + undefinedToZero(responses[1].type.like);
-          
+
           if (likes !== 0)
             document.querySelector("#like-count").innerHTML = likes + "♥️";
 
@@ -82,6 +82,62 @@
           if (reposts !== 0)
             document.querySelector("#repost-count").innerHTML = reposts + "🔁";
         });
+
+      document.addEventListener("DOMContentLoaded", function() {
+        function replaceEmojis(string, emojis) {
+          emojis.forEach(emoji => {
+              string = string.replaceAll(
+                `:${emoji.shortcode}:`, `<img class="emoji" src="${emoji.static_url}">`);
+          });
+          return string;
+        }
+
+        let mastodonLink = document.querySelector("a.mastodon-link");
+        if (mastodonLink != null) {
+          mastodonLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            let instanceURL = window.prompt("Enter your instance URL to like, share or comment on this post:");
+            if (instanceURL == null) { return; }
+            if (!instanceURL.startsWith("https")) {
+              instanceURL = "https://" + instanceURL;
+            }
+            window.open(`${instanceURL}/authorize_interaction?uri=${mastodonLink.href}`, '_blank');
+          });
+
+          let parts = mastodonLink.href.split("/");
+          let postId = parts[parts.length - 1];
+          let main = document.querySelector("main");
+          fetch(`https://fantastic.earth/api/v1/statuses/${postId}/context`)
+          .then(res => res.json())
+          .then(res => {
+            let comments = res.descendants.filter(c => c.visibility === "public");
+            if (comments.length === 0)
+              return;
+
+            let commentContainer = document.createElement("div");
+            commentContainer.className = "comments";
+
+            let commentsHeader = document.createElement("h2");
+            commentsHeader.innerHTML = "Comments";
+            commentContainer.appendChild(commentsHeader);
+
+            for (let comment of comments) {
+              let html = `
+<a class="account" href="${comment.account.url}">${replaceEmojis(comment.account.username, comment.account.emojis)}</a>
+<a class="pubtime" href="${comment.url}"><time>${new Date(comment.created_at).toLocaleString()}</time></a>
+<div class="content">${replaceEmojis(comment.content, comment.emojis)}</div>`;
+              let commentElement = document.createElement("div");
+              commentElement.innerHTML = html;
+              commentElement.className = "comment";
+              if (comment.in_reply_to_id !== postId) {
+                commentElement.classList.add("reply");
+              }
+              commentContainer.appendChild(commentElement);
+            }
+            main.appendChild(commentContainer);
+          });
+        }
+      });
     </script>
     {% endif %}
     </section>

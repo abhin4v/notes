@@ -472,4 +472,4 @@ The `main` function reads the browsing session from the standard input. It then 
 
 Then, it prints the final file system, and the solutions to the two parts of the challenge.
 
-That's it for this post! I hope you enjoyed it. If you have any questions or comments, please [leave a comment](https://fantastic.earth/@abnv/109485091901491189). If you liked this post, please share it with your friends. Thanks for reading!
+That's it for this post! I hope you enjoyed it. If you have any questions or comments, please [leave a comment](https://fantastic.earth/@abnv/109485091901491189){:class="mastodon-link"}. If you liked this post, please share it with your friends. Thanks for reading!

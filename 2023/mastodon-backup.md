@@ -155,4 +155,4 @@ pg_restore --clean --if-exists --dbname mastodon /tmp/mastodon.sql.gz
 
 That's all for setting up the Syncthing backup for Mastodon. I hope this helps someone. If you have any questions or suggestions, please feel free to leave a comment. Thanks for reading!
 
-You can like, share, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110362391871164484).
+You can like, share, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110362391871164484){:class="mastodon-link"}.

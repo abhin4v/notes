@@ -62,4 +62,4 @@ As the chart shows, I started quickly accumulating sleep debt in July 2022, reac
 
 That's it for this year. I may do the analysis again next year, and see how things have changed.
 
-Like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110270757135255035).
+Like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110270757135255035){:class="mastodon-link"}.

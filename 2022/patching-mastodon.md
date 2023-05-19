@@ -75,4 +75,4 @@ That's it. The disk usage of my Mastodon instance is now under control:
 
 I hope this helps someone else who is running a Mastodon instance on NixOS.
 
-Like, share and reply to this post on the [Fediverse](https://fantastic.earth/@abnv/109546513445577883).
+Like, share and reply to this post on the [Fediverse](https://fantastic.earth/@abnv/109546513445577883){:class="mastodon-link"}.

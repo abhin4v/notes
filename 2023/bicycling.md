@@ -44,4 +44,4 @@ That brings us to now. The shadow of the pandemic seems to have lifted, but the 
 
 Recently, I have started riding my bike again. I do short rides within my neighborhood, going in circles. I hope some day I'll be able to move to a more cycling friendly city, and commute on my bike every day. Till then, the short rides will have to do.
 
-Like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110390973161487038).
+Like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110390973161487038){:class="mastodon-link"}.

@@ -117,4 +117,4 @@ This proves that the solution has already been calculated at compile time.
 
 To understand what the code does, read my [blog post](https://abhinavsarkar.net/posts/type-level-haskell-aoc7/) about type-level Haskell solution of one of last year's Advent of Code challenges. Or better yet, learn some type-level programming in Haskell by reading the book [Thinking with Types](https://thinkingwithtypes.com/) by [Sandy Maguire](https://sandymaguire.me/).
 
-Like, repost, or reply to this note on [Fediverse](https://fantastic.earth/@abnv/109445431721468848).
+Like, repost, or reply to this note on [Fediverse](https://fantastic.earth/@abnv/109445431721468848){:class="mastodon-link"}.

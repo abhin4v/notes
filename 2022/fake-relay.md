@@ -148,4 +148,4 @@ Finally, you can set this script to run on a schedule using Cron or Systemd time
 
 That's it! Fill your Mastodon instances with interesting content and enjoy.
 
-Like, share and reply to this post on the [fediverse](https://fantastic.earth/@abnv/109518233198510914).
+Like, share and reply to this post on the [fediverse](https://fantastic.earth/@abnv/109518233198510914){:class="mastodon-link"}.

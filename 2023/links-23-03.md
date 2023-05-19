@@ -66,4 +66,4 @@ Here are some interesting things I read on the internet in March 2023:
 - [Writing The World's Most Boring Quine](https://web.archive.org/web/3/http://rtpg.co/2023/03/02/quines-for-dummies.html) \
   How to write quines from first principles.
 
-Like, repost, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110122311237335886).
+Like, repost, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110122311237335886){:class="mastodon-link"}.

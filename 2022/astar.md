@@ -6,10 +6,10 @@ tags: algorithm haskell programming
 # A* Algorithm in Haskell
 
 The start of the [Advent of code](https://adventofcode.com/) today reminded me of the
-[A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), which I often find myself using 
+[A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), which I often find myself using
 for graph [pathfinding](https://en.wikipedia.org/wiki/Pathfinding) related problems.
 
-If there is a heuristic function known that estimates the cost of the cheapest path from a node in 
+If there is a heuristic function known that estimates the cost of the cheapest path from a node in
 the graph to the goal node, then A* can perform better than other search algorithms like
 [Breadth-first Search](https://en.wikipedia.org/wiki/Breadth-first_search) and
 [Best-first Search](https://en.wikipedia.org/wiki/Best-first_search)
@@ -39,7 +39,7 @@ astar ::
   node ->
   -- | The function to get the next nodes and their costs from a given node.
   (node -> [(node, cost)]) ->
-  -- | The heuristic function to estimate the cost of going from a given node to 
+  -- | The heuristic function to estimate the cost of going from a given node to
   --   the goal node.
   (node -> node -> cost) ->
   -- | Returns Nothing if no path found.
@@ -55,7 +55,7 @@ astar startNode goalNode nextNodes heuristic =
     astar' ::
       -- | The set of discovered nodes that need to be visited, stored
       --   in a min-priority queue prioritized by sum of costs of reaching to
-      --   the nodes from the start node, and heuristic costs of reaching 
+      --   the nodes from the start node, and heuristic costs of reaching
       --   from the nodes to the goal node.
       PQ.MinPQueue cost (node, cost) ->
       -- | The set of already visited nodes.
@@ -96,7 +96,7 @@ astar startNode goalNode nextNodes heuristic =
               ]
 
             -- Insert the successors in the discovered set.
-            discovered' = foldl' (\q (n, c, h) -> PQ.insert (c + h) (n, c) q) 
+            discovered' = foldl' (\q (n, c, h) -> PQ.insert (c + h) (n, c) q)
                 discoveredSansCurrent successors
             -- Insert the successor costs in the minimum cost map.
             minCosts' = foldl' (\m (n, c, _) -> Map.insert n c m) minCosts successors
@@ -110,7 +110,7 @@ astar startNode goalNode nextNodes heuristic =
         -- discovered set.
         ((_, (node, cost)), discoveredSansCurrent) = PQ.deleteFindMin discovered
 
-    -- Construct the path of the given node from the start node using the 
+    -- Construct the path of the given node from the start node using the
     -- recorded tracks.
     findPath tracks node =
       if Map.member node tracks
@@ -120,4 +120,4 @@ astar startNode goalNode nextNodes heuristic =
 
 That's it for this short post. Happy pathfinding!
 
-Like, repost, or reply to this note on [Fediverse](https://fantastic.earth/@abnv/109438819806774018).
+Like, repost, or reply to this note on [Fediverse](https://fantastic.earth/@abnv/109438819806774018){:class="mastodon-link"}.

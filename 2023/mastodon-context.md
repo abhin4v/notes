@@ -416,4 +416,4 @@ read:statuses and admin:read:accounts scopes.
 
 I hope this is useful to someone else. I'm not a Python expert, so I'm sure there are some things that could be improved. I'm also not sure if this is the best way to do this, but it seems to work well enough for me.
 
-You can like, repost, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/109971076654557910).
+You can like, repost, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/109971076654557910){:class="mastodon-link"}.

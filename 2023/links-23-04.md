@@ -76,4 +76,4 @@ Strategies for effective spaced repetition.
 - [Erasing at the blackboard](https://typeclasses.substack.com/p/erasing-at-the-blackboard) \
 Better ways to write code for a book.
 
-Like, share, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110297621824341094).
+Like, share, or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110297621824341094){:class="mastodon-link"}.
