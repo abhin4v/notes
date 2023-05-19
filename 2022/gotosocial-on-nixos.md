@@ -125,4 +125,4 @@ When we import and enable this module in our NixOS configuration, we have a self
 
 That's it for now. Happy #twittermigration.
 
-[Like](https://types.pl/interact/109375589712954339?type=favourite), [repost](https://types.pl/interact/109375589712954339?type=reblog), or [reply](https://types.pl/interact/109375589712954339?type=reply) to this note on Fediverse.
+Like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/110396110265909682){:class="mastodon-link"}.
