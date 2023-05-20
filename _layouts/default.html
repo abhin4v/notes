@@ -84,6 +84,7 @@
         });
 
       document.addEventListener("DOMContentLoaded", function() {
+        let blockedStatuses = [{{ site.data.blocked_statuses | join: ", "}}];
         function replaceEmojis(string, emojis) {
           emojis.forEach(emoji => {
               string = string.replaceAll(
@@ -122,6 +123,10 @@
             commentContainer.appendChild(commentsHeader);
 
             for (let comment of comments) {
+              if (blockedStatuses.includes(parseInt(comment.id))) {
+                continue;
+              }
+
               let html = `
 <a class="account" href="${comment.account.url}">${replaceEmojis(comment.account.username, comment.account.emojis)}</a>
 <a class="pubtime" href="${comment.url}"><time>${new Date(comment.created_at).toLocaleString()}</time></a>
