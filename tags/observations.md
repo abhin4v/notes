@@ -1,4 +1,5 @@
 # observations
+- *2023-09-09* [2023/10k-training](/2023/10k-training)
 - *2023-04-27* [2023/sleep-analysis](/2023/sleep-analysis)
 - *2023-04-13* [2023/reading-process](/2023/reading-process)
 - *2022-10-07* [2022/software-i-use](/2022/software-i-use)

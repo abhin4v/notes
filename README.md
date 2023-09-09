@@ -30,6 +30,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2023-09-09* [2023/10k-training](/2023/10k-training)
 - *2023-05-19* [2023/mastodon-comments](/2023/mastodon-comments)
 - *2023-05-18* [2023/bicycling](/2023/bicycling)
 - *2023-05-13* [2023/mastodon-backup](/2023/mastodon-backup)
