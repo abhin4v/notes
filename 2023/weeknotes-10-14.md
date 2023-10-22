@@ -3,7 +3,7 @@ date: 2023-10-14
 tags: notes personal
 ---
 
-# Notes for the week
+# Notes for the Week
 
 In the week of 14th October 2023, I am trying to restart my practice of writing.
 
