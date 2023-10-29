@@ -1,4 +1,5 @@
 # notes
+- *2023-10-29* [2023/weeknotes-10-29](/2023/weeknotes-10-29)
 - *2023-10-22* [2023/weeknotes-10-22](/2023/weeknotes-10-22)
 - *2023-10-14* [2023/weeknotes-10-14](/2023/weeknotes-10-14)
 - *2021-07-03* [2021/monthnotes-06](/2021/monthnotes-06)

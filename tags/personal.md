@@ -1,4 +1,5 @@
 # personal
+- *2023-10-29* [2023/weeknotes-10-29](/2023/weeknotes-10-29)
 - *2023-10-22* [2023/weeknotes-10-22](/2023/weeknotes-10-22)
 - *2023-10-14* [2023/weeknotes-10-14](/2023/weeknotes-10-14)
 - *2023-09-09* [2023/10k-training](/2023/10k-training)
