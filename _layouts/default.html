@@ -98,10 +98,16 @@
           mastodonLink.addEventListener("click", function(event) {
             event.preventDefault();
             let instanceURL = window.prompt("Enter your instance URL to like, share or comment on this post:");
-            if (instanceURL == null) { return; }
+            if (instanceURL == null) {
+              window.location = mastodonLink.href;
+              return;
+            }
 
             instanceURL = instanceURL.trim();
-            if (instanceURL === "") { return; }
+            if (instanceURL === "") {
+              window.location = mastodonLink.href;
+              return;
+            }
 
             if (!instanceURL.startsWith("https")) {
               instanceURL = "https://" + instanceURL;
