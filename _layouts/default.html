@@ -121,10 +121,7 @@
           fetch(`https://fantastic.earth/api/v1/statuses/${postId}/context`)
           .then(res => res.json())
           .then(res => {
-            let comments = res.descendants.filter(c => {
-              return c.visibility === "public" ||
-                     (c.visibility === "unlisted"  && c.account.acct === "abnv");
-            });
+            let comments = res.descendants;
             if (comments.length === 0)
               return;
 
