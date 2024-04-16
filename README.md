@@ -30,6 +30,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2024-04-16* [2024/links-04](/2024/links-04)
 - *2023-12-31* [2023/standalone-haddock](/2023/standalone-haddock)
 - *2023-11-08* [2023/default-apps](/2023/default-apps)
 - *2023-10-29* [2023/weeknotes-10-29](/2023/weeknotes-10-29)
