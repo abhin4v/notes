@@ -11,7 +11,6 @@
 - *2023-01-03* [2023/links-22-12](/2023/links-22-12)
 - *2022-12-20* [2022/patching-mastodon](/2022/patching-mastodon)
 - *2022-12-15* [2022/fake-relay](/2022/fake-relay)
-- *2022-12-09* [2022/aoc-7](/2022/aoc-7)
 - *2022-12-02* [2022/type-level-rps](/2022/type-level-rps)
 - *2022-12-01* [2022/astar](/2022/astar)
 - *2022-11-20* [2022/gotosocial-on-nixos](/2022/gotosocial-on-nixos)
