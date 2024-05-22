@@ -1,4 +1,5 @@
 # programming
+- *2024-05-22* [2024/links-05](/2024/links-05)
 - *2024-04-16* [2024/links-04](/2024/links-04)
 - *2023-12-31* [2023/standalone-haddock](/2023/standalone-haddock)
 - *2023-05-19* [2023/mastodon-comments](/2023/mastodon-comments)
