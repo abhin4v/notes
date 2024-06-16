@@ -142,6 +142,7 @@
 <a class="pubtime" href="${comment.url}"><time>${new Date(comment.created_at).toLocaleString()}</time></a>
 <div class="content">${replaceEmojis(comment.content, comment.emojis)}</div>`;
               let commentElement = document.createElement("div");
+              commentElement.id = "comment-" + comment.id;
               commentElement.innerHTML = html;
               commentElement.className = "comment";
               if (comment.in_reply_to_id !== postId) {
