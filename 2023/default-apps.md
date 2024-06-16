@@ -1,6 +1,6 @@
 ---
 date: 2023-11-08
-tags: personal observations
+tags: personal observations software
 ---
 
 # Apps I Use

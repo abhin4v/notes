@@ -1,6 +1,6 @@
 ---
 date: 2023-04-13
-tags: personal observations
+tags: personal observations software
 ---
 
 # My Reading Process

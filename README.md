@@ -25,11 +25,13 @@ Short notes about things I come across and ideas I run into.
 - [programming](/tags/programming)
 - [review](/tags/review)
 - [self-hosting](/tags/self-hosting)
+- [software](/tags/software)
 - [travel](/tags/travel)
 - [video](/tags/video)
 
 ## Notes
 
+- *2024-06-16* [2024/customizing-miniflux](/2024/customizing-miniflux)
 - *2024-06-14* [2024/links-06](/2024/links-06)
 - *2024-05-22* [2024/links-05](/2024/links-05)
 - *2024-04-16* [2024/links-04](/2024/links-04)

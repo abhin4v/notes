@@ -1,6 +1,6 @@
 ---
 date: 2022-10-07
-tags: personal observations
+tags: personal observations software
 ---
 
 # Software I use on my MacBook
