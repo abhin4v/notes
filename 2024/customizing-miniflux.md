@@ -24,7 +24,7 @@ Sometime I want to read certain entries inside the Miniflux reader instead. Clic
 
 [^2]: Unfortunately, I was not able to figure out how to make this work with Miniflux's keyboard navigation.
 
-This also allows me to customize each website using various Firefox extensions. I can remove various parts of pages if required using [uBlock Origin](https://github.com/gorhill/uBlock), I can turn pages dark using [Dark reader](https://darkreader.org/), or restyle them using [Stylus](https://add0n.com/stylus.html), or even change their functionality using [Tapermonkey](https://www.tampermonkey.net/) scripts. All of this is great!
+This also allows me to customize each website using various Firefox extensions. I can remove various parts of pages if required using [uBlock Origin](https://github.com/gorhill/uBlock), I can turn pages dark using [Dark reader](https://darkreader.org/), or restyle them using [Stylus](https://add0n.com/stylus.html), or even change their functionality using [Tampermonkey](https://www.tampermonkey.net/) scripts. All of this is great!
 
 I've had this setup for three months now, and I'm loving it. I have stopped using Reeder altogether!
 
@@ -131,7 +131,7 @@ body {
 Along with other small style tweaks as per my taste, this positions actions buttons for entries on the right, hides links for entry comments and external URLs, and makes the page headers sticky so that they stay visible even when you scroll down.
 
 <details markdown="1">
-<summary>Here is the Tapermonkey script I use for changing Miniflux's default behaviour:</summary>
+<summary>Here is the Tampermonkey script I use for changing Miniflux's default behaviour:</summary>
 
 ```js
 // ==UserScript==
