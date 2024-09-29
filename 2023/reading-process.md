@@ -16,7 +16,7 @@ The process starts with me adding feeds to Miniflux for interesting blogs I find
 
 I add the feeds to Miniflux using the web interface, and then I read them through the feed reader apps. I use [Reeder 5](https://reederapp.com/) on my MacBook, [Unread](https://apps.apple.com/us/app/unread-an-rss-reader/id1363637349) on my iPad, [FeedMe](https://play.google.com/store/apps/details?id=com.seazon.feedme) on my Android phone, and [Miniflux Reader](https://reader.miniflux.app/) on the web. All of these sync with Miniflux, so reading an article on one device marks it as read on all the other devices.
 
-If there is no feed, then I read the article in the web browser.
+If there is no feed, then I save the article in my [Feedlynx](https://github.com/wezm/feedlynx/) server, which provides an RSS feed of saved articles that I subscribe to from Miniflux, and read in the readers mentioned above.
 
 For long articles that I cannot read in one sitting, or for when I'd like to read them later offline, I save them to [Instapaper](https://www.instapaper.com/), either directly through its web interface, or through feed reader apps. Then I have Instapaper send them to my Kindle, so I can read them on the go.
 
