@@ -131,14 +131,9 @@ body {
 Along with other small style tweaks as per my taste, this positions actions buttons for entries on the right, hides links for entry comments and external URLs, and makes the page headers sticky so that they stay visible even when you scroll down.
 
 <details markdown="1">
-<summary>Here is the Tampermonkey script I use for changing Miniflux's default behaviour:</summary>
+<summary>Here is the custom JavaScript I set in Miniflux for changing its default behaviour:</summary>
 
 ```js
-// ==UserScript==
-// @name         Miniflux 2 Pane
-// @match        https://reader.miniflux.app/*
-// ==/UserScript==
-
 (function() {
   'use strict';
 
