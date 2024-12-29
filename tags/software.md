@@ -1,4 +1,5 @@
 # software
+- *2024-12-29* [2024/default-apps](/2024/default-apps)
 - *2024-06-16* [2024/customizing-miniflux](/2024/customizing-miniflux)
 - *2023-11-08* [2023/default-apps](/2023/default-apps)
 - *2023-04-13* [2023/reading-process](/2023/reading-process)

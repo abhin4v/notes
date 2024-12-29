@@ -1,12 +1,11 @@
 ---
-date: 2023-11-08
+date: 2024-12-29
 tags: personal observations software
 ---
 
-# Apps I Use (2023)
+# Apps I Use (2024)
 
-I was made aware by [Ankur](https://ankursethi.in/posts/default-apps-2023-edition/) that everyone is writing blog posts about the
-apps they use, so I decided to write mine as well. Here we go!
+Last year I posted the list of [my default apps](/2023/default-apps). It's time to update it for 2024!
 
 - Email: GMail
 - Notes: Apple Notes
@@ -16,31 +15,31 @@ apps they use, so I decided to write mine as well. Here we go!
 - Photo editing: Snapseed
 - Calendar: Google Calendar
 - Cloud storage: Google Drive and Dropbox
-- RSS: Miniflux (web) + Reeder (macOS) + Unread (iOS) + FeedMe (Android)
 - Contact management: Google Contacts
 - Browser: Firefox
-- Chat: Telegram, WhatsApp
+- Chat: Telegram, WhatsApp, Signal
 - Video calls: Google Meet, WhatsApp
 - Bookmarks: Wallabag
-- Read later: Reeder, Instapaper
+- RSS: Miniflux (web) + Reeder (macOS) + Unread (iOS) + ~~FeedMe~~ FocusReader (Android)
+- Read later: ~~Reeder, Instapaper~~ [Feedlynx](https://github.com/wezm/feedlynx/)
 - Spreadsheets: Google Sheets
 - Word processing: Google Docs
 - Presentations: Apple Keynote, Google Slides, [RemarkJS](https://remarkjs.com)
 - Shopping list: Google Keep
+- Mastodon client: [Ivory](https://tapbots.com/ivory) (macOS), [Phanpy](https://phanpy.social) (web), [Trunks](https://trunks.social) (Android)
 - News: Mastodon, RSS
 - Music: Spotify
 - Podcast: Spotify
 - Video: VLC media player
 - Password management: 1Password
-- Books: Kindle and Apple Books on iPad
+- Books: Kindle, Apple Books (iPad)
 - App launcher: Spotlight
-- Code editor: Visual Studio Code
-- Terminal: iTerm
+- Code editor: Visual Studio Code, [Zed](https://zed.dev/)
+- Terminal: iTerm2
 - Git client: [Git UI](https://github.com/Extrawurst/gitui)
 - Window management: [Amethyst](https://ianyh.com/amethyst/)
 - Diagram maker: [Monodraw](https://monodraw.helftone.com/)
-- Mastodon: [Ivory](https://tapbots.com/ivory) (macOS), [Phanpy](https://phanpy.social) (web), [Trunks](https://trunks.social) (Android)
 
-If you want to see more, [Robb Knight](https://social.lol/@robb) is collecting these lists on [App Defaults](https://defaults.rknight.me/).
+If you want to see more, [Robb Knight](https://social.lol/@robb) has collected these lists on [App Defaults](https://defaults.rknight.me/).
 
-You can like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/111373119311144686){:class="mastodon-link"}.
+You can like, share or comment on this post on [Mastodon](https://fantastic.earth/@abnv/113736601613858852){:class="mastodon-link"}.
