@@ -78,6 +78,7 @@ body.remarkdown {
   }
   p code {
     color: var(--code-color);
+    text-wrap: nowrap;
   }
   a {
     color: var(--link-color);
@@ -219,6 +220,9 @@ body.remarkdown {
       width: 20px;
       height: 20px;
       vertical-align: bottom;
+    }
+    &:first-child .h-card:first-of-type {
+      display: none;
     }
   }
   &.reply {
