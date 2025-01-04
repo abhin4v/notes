@@ -31,6 +31,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2025-01-04* [2025/customizing-miniflux](/2025/customizing-miniflux)
 - *2024-12-31* [2024/links-12](/2024/links-12)
 - *2024-12-29* [2024/default-apps](/2024/default-apps)
 - *2024-11-20* [2024/links-11](/2024/links-11)

@@ -139,6 +139,12 @@ body.remarkdown {
     display: inline-block;
     border-bottom: 1px solid transparent;
   }
+  dl dt {
+    font-style: italic;
+    > a {
+      font-style: normal;
+    }
+  }
   time {
     color: var(--time-color);
   }
