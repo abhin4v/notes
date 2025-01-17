@@ -1,4 +1,5 @@
 # personal
+- *2025-01-17* [2025/blog-question](/2025/blog-question)
 - *2024-12-29* [2024/default-apps](/2024/default-apps)
 - *2023-11-08* [2023/default-apps](/2023/default-apps)
 - *2023-10-29* [2023/weeknotes-10-29](/2023/weeknotes-10-29)
