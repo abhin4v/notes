@@ -1,6 +1,6 @@
 ---
 date: 2020-07-10
-tags: book review
+tags: books reviews
 ---
 
 # Childhood's End by Arthur C. Clarke: A book review

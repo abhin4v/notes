@@ -1,6 +1,6 @@
 ---
 date: 2022-12-01
-tags: algorithm haskell programming
+tags: algorithms haskell programming
 ---
 
 # A* Algorithm in Haskell

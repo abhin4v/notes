@@ -1,6 +1,6 @@
 ---
 date: 2020-12-12
-tags: programming aoc haskell
+tags: programming advent-of-code haskell
 ---
 
 # Advent of Code 2020 — Week 2

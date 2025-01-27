@@ -1,6 +1,6 @@
 ---
 date: 2019-06-18
-tags: programming java algorithm
+tags: programming java algorithms
 ---
 
 # Reversing a Linked-list

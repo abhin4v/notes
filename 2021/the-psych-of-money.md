@@ -1,6 +1,6 @@
 ---
 date: 2021-06-18
-tags: book highlights
+tags: books highlights
 ---
 
 # Highlights for _The Psychology of Money_ by Morgan Housel

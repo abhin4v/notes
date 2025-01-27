@@ -1,6 +1,6 @@
 ---
 date: 2021-01-26
-tags: book highlights
+tags: books highlights
 ---
 
 # Highlights for _On Writing Well_ by William Zinsser

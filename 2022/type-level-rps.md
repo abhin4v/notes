@@ -1,6 +1,6 @@
 ---
 date: 2022-12-02
-tags: haskell aoc programming
+tags: haskell advent-of-code programming
 ---
 
 # Solving Rock-Paper-Scissors in Type-level Haskell

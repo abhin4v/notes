@@ -1,6 +1,6 @@
 ---
 date: 2020-07-26
-tags: book review
+tags: books reviews
 ---
 
 # Rama II (Rama, #2) by Arthur C. Clarke: A book review

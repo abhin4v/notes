@@ -1,6 +1,6 @@
 ---
 date: 2020-12-26
-tags: programming aoc haskell
+tags: programming advent-of-code haskell
 ---
 
 # Learnings from Solving Advent of Code 2020 in Haskell

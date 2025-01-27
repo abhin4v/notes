@@ -4,10 +4,10 @@ Short notes about things I come across and ideas I run into.
 
 ## Tags
 
-- [algorithm](/tags/algorithm)
-- [aoc](/tags/aoc)
+- [advent-of-code](/tags/advent-of-code)
+- [algorithms](/tags/algorithms)
 - [architecture](/tags/architecture)
-- [book](/tags/book)
+- [books](/tags/books)
 - [distributed-systems](/tags/distributed-systems)
 - [fediverse](/tags/fediverse)
 - [general](/tags/general)
@@ -23,7 +23,7 @@ Short notes about things I come across and ideas I run into.
 - [personal](/tags/personal)
 - [photo](/tags/photo)
 - [programming](/tags/programming)
-- [review](/tags/review)
+- [reviews](/tags/reviews)
 - [self-hosting](/tags/self-hosting)
 - [software](/tags/software)
 - [travel](/tags/travel)
