@@ -1,4 +1,5 @@
 # self-hosting
+- *2025-05-13* [2025/pandoc-reading-time](/2025/pandoc-reading-time)
 - *2025-04-20* [2025/goaccess-server-on-nixos](/2025/goaccess-server-on-nixos)
 - *2023-05-13* [2023/mastodon-backup](/2023/mastodon-backup)
 - *2022-12-20* [2022/patching-mastodon](/2022/patching-mastodon)

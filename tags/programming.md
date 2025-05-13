@@ -1,4 +1,5 @@
 # programming
+- *2025-05-13* [2025/pandoc-reading-time](/2025/pandoc-reading-time)
 - *2025-04-20* [2025/goaccess-server-on-nixos](/2025/goaccess-server-on-nixos)
 - *2024-12-31* [2024/links-12](/2024/links-12)
 - *2024-11-20* [2024/links-11](/2024/links-11)

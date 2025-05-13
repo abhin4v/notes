@@ -1,4 +1,5 @@
 # haskell
+- *2025-05-13* [2025/pandoc-reading-time](/2025/pandoc-reading-time)
 - *2024-12-31* [2024/links-12](/2024/links-12)
 - *2023-12-31* [2023/standalone-haddock](/2023/standalone-haddock)
 - *2022-12-02* [2022/type-level-rps](/2022/type-level-rps)

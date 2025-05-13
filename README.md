@@ -31,6 +31,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2025-05-13* [2025/pandoc-reading-time](/2025/pandoc-reading-time)
 - *2025-04-20* [2025/goaccess-server-on-nixos](/2025/goaccess-server-on-nixos)
 - *2025-01-17* [2025/blog-question](/2025/blog-question)
 - *2025-01-04* [2025/customizing-miniflux](/2025/customizing-miniflux)
