@@ -5,7 +5,7 @@ tags: indieweb personal
 
 # Unfinished Business
 
-_I wrote this post for a prompt given during our local [Indieweb](https://indieweb.org/) club meeting. The prompt was: "Write something about media you consumed recently"._
+_I wrote this post for a prompt given during our [local](https://underline.center/t/indiewebclub-with-ankur-and-tanvi/343) [Indieweb](https://indieweb.org/) club meeting. The prompt was: "Write something about media you consumed recently"._
 
 I've been watching TV shows for a long time, as some of you may have been as well. A perk of being old is that when you accumulate a lot of experiences and memories, you start noticing patterns when reflecting on them.
 
