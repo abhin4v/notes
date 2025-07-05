@@ -31,6 +31,7 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2025-07-05* [2025/totems](/2025/totems)
 - *2025-05-24* [2025/unfinished-business](/2025/unfinished-business)
 - *2025-05-13* [2025/pandoc-reading-time](/2025/pandoc-reading-time)
 - *2025-04-20* [2025/goaccess-server-on-nixos](/2025/goaccess-server-on-nixos)

@@ -1,4 +1,5 @@
 # personal
+- *2025-07-05* [2025/totems](/2025/totems)
 - *2025-05-24* [2025/unfinished-business](/2025/unfinished-business)
 - *2025-01-17* [2025/blog-question](/2025/blog-question)
 - *2024-12-29* [2024/default-apps](/2024/default-apps)
