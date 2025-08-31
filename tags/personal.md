@@ -1,4 +1,5 @@
 # personal
+- *2025-08-31* [2025/into-programming](/2025/into-programming)
 - *2025-08-16* [2025/writing-process](/2025/writing-process)
 - *2025-07-05* [2025/totems](/2025/totems)
 - *2025-05-24* [2025/unfinished-business](/2025/unfinished-business)
