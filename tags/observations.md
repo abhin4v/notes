@@ -1,4 +1,5 @@
 # observations
+- *2025-09-09* [2025/broken-feeds](/2025/broken-feeds)
 - *2025-08-16* [2025/writing-process](/2025/writing-process)
 - *2024-12-29* [2024/default-apps](/2024/default-apps)
 - *2023-11-08* [2023/default-apps](/2023/default-apps)
