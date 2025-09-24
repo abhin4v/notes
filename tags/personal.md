@@ -1,26 +1,4 @@
-# personal
-- *2025-08-31* [2025/into-programming](/2025/into-programming)
-- *2025-08-16* [2025/writing-process](/2025/writing-process)
-- *2025-07-05* [2025/totems](/2025/totems)
-- *2025-05-24* [2025/unfinished-business](/2025/unfinished-business)
-- *2025-01-17* [2025/blog-question](/2025/blog-question)
-- *2024-12-29* [2024/default-apps](/2024/default-apps)
-- *2023-11-08* [2023/default-apps](/2023/default-apps)
-- *2023-10-29* [2023/weeknotes-10-29](/2023/weeknotes-10-29)
-- *2023-10-22* [2023/weeknotes-10-22](/2023/weeknotes-10-22)
-- *2023-10-14* [2023/weeknotes-10-14](/2023/weeknotes-10-14)
-- *2023-09-09* [2023/10k-training](/2023/10k-training)
-- *2023-05-18* [2023/bicycling](/2023/bicycling)
-- *2023-04-27* [2023/sleep-analysis](/2023/sleep-analysis)
-- *2023-04-13* [2023/reading-process](/2023/reading-process)
-- *2022-10-07* [2022/software-i-use](/2022/software-i-use)
-- *2022-07-02* [2022/5k-training](/2022/5k-training)
-- *2021-08-17* [2021/mood-analysis](/2021/mood-analysis)
-- *2021-07-03* [2021/monthnotes-06](/2021/monthnotes-06)
-- *2020-12-20* [2020/weeknotes-12-20](/2020/weeknotes-12-20)
-- *2020-12-13* [2020/weeknotes-12-13](/2020/weeknotes-12-13)
-- *2020-12-06* [2020/weeknotes-12-06](/2020/weeknotes-12-06)
-- *2020-11-29* [2020/weeknotes-11-29](/2020/weeknotes-11-29)
-- *2020-08-09* [2020/sleep-analysis](/2020/sleep-analysis)
-- *2020-05-11* [2020/lockdown-effects](/2020/lockdown-effects)
-- *2019-07-18* [2019/water-intake](/2019/water-intake)
+---
+layout: tag_redirect
+redirect: personal
+---

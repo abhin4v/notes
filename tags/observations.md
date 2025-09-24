@@ -1,16 +1,4 @@
-# observations
-- *2025-09-09* [2025/broken-feeds](/2025/broken-feeds)
-- *2025-08-16* [2025/writing-process](/2025/writing-process)
-- *2024-12-29* [2024/default-apps](/2024/default-apps)
-- *2023-11-08* [2023/default-apps](/2023/default-apps)
-- *2023-09-09* [2023/10k-training](/2023/10k-training)
-- *2023-04-27* [2023/sleep-analysis](/2023/sleep-analysis)
-- *2023-04-13* [2023/reading-process](/2023/reading-process)
-- *2022-10-07* [2022/software-i-use](/2022/software-i-use)
-- *2022-07-02* [2022/5k-training](/2022/5k-training)
-- *2021-08-17* [2021/mood-analysis](/2021/mood-analysis)
-- *2020-08-09* [2020/sleep-analysis](/2020/sleep-analysis)
-- *2020-05-11* [2020/lockdown-effects](/2020/lockdown-effects)
-- *2019-08-30* [2019/commute-duration](/2019/commute-duration)
-- *2019-07-18* [2019/water-intake](/2019/water-intake)
-- *2019-06-12* [2019/meetings](/2019/meetings)
+---
+layout: tag_redirect
+redirect: observations
+---
