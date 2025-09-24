@@ -2,6 +2,8 @@
 
 Short notes about things I come across and ideas I run into.
 
+<p>This website has been archived. Please visit <a href='https://abhinavsarkar.net/notes/'>https://abhinavsarkar.net/notes/</a> for new and old notes.</p>
+
 ## Tags
 
 - [advent-of-code](/tags/advent-of-code)
@@ -28,3 +30,4 @@ Short notes about things I come across and ideas I run into.
 
 ## Notes
 
+- *2025-09-24* [2025/new-endings](/2025/new-endings)

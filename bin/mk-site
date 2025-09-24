@@ -11,6 +11,7 @@ echo "Tags found:\n$TAGS\n"
 echo "Adding tags to README"
 echo "# $NAME\n" > README.md
 echo "$DESC\n" >> README.md
+echo "<p>This website has been archived. Please visit <a href='https://abhinavsarkar.net/notes/'>https://abhinavsarkar.net/notes/</a> for new and old notes.</p>\n" >> README.md
 echo "## Tags\n" >> README.md
 echo "$TAGS" | awk '{print "- ["$1"](/tags/"$1")"}' >> README.md
 
